@@ -1,7 +1,7 @@
 <script>
 	export let data;
 
-	console.log(data.code);
+	console.log(data);
 </script>
 
 <!-- <svelte:window on:keydown={keydown} /> -->
@@ -11,5 +11,5 @@
 	<meta name="description" content="A Callum clone written in SvelteKit" />
 </svelte:head>
 
-<h1>Test of data transfer {data.code}</h1>
+<h1>Test of data transfer {data}</h1>
 
