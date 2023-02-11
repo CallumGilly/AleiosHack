@@ -1,0 +1,24 @@
+{
+  "name": "aleioshack",
+  "version": "1.0.0",
+  "description": "Repo for code from the 2023 Aleios Hack at University of south",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CallumGilly/AleiosHack.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/CallumGilly/AleiosHack/issues"
+  },
+  "homepage": "https://github.com/CallumGilly/AleiosHack#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "svelte-view-engine": "^1.2.0-b"
+  }
+}
