@@ -5,6 +5,9 @@
 	import L from 'leaflet';
 
 	const initialView = [50.935396, -1.395846]
+	
+	let marker;
+
 	function create_map(container) {
 		let m = L.map(container, {preferCanvas: true}).setView(initialView, 15);
 
@@ -18,19 +21,31 @@
 	    	}
 	  	).addTo(m);
 
+		m.on("locationfound", function(ev) {
+			if (!marker) {
+				marker = L.marker(ev.latlng);
+			} else {
+				marker.setLatLng(ev.latlng);
+			}
+		})
+		
+		m.locate({setView: true, watch: true, maxZoom: 19});
+
     	return m;
 	}
 </script>
 
 <div class="app">
-	<AnalyticsButton />
+	<div id="map_page">
+		<AnalyticsButton />
 
-	<main>
-		<slot />
-	</main>
+		<main>
+			<slot />
+		</main>
 
-	<div class="map" style="height:100vh;width:100vw;z-index:0" use:create_map />
-	<ReportButton />
+		<div class="map" style="height:100vh;width:100vw;z-index:0" use:create_map />
+		<ReportButton />
+	</div>
 </div>
 
 <style>

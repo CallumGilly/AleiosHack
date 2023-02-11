@@ -1,6 +1,8 @@
 // import { createRequire } from "module";
 // const require = createRequire(import.meta.url);
 import mysql from "mysql";
+import * as dotenv from "dotenv"
+dotenv.config();
 // const mysql = require("mysql");
 export const load = ({ cookies }) => {
 	// return {Data: "Callums Data"};
