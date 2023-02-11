@@ -15,7 +15,7 @@ export const load = ({ cookies }) => {
 		if (err) {
 			console.error("Could not connect to database");
 		} else {
-			db.query('SELECT * FROM *', [], (err, res) => {
+			db.query('SELECT * FROM Hack.reports', [], (err, res) => {
 				if (err) {
 					console.error("BAD REQUEST");
 				} else {
