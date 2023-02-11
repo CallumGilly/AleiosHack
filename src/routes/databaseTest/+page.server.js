@@ -4,14 +4,15 @@ import mysql from "mysql";
 import * as dotenv from "dotenv"
 dotenv.config();
 // const mysql = require("mysql");
-export const load = ({ cookies }) => {
+// export function async load() {
+export const load = async ({ cookies }) => {
 	// return {Data: "Callums Data"};
 	const db = mysql.createConnection({
-// 	const db = createConnection({
+		// 	const db = createConnection({
 		host: process.env.DB_HOST,
-    user: process.env.DB_USER,
-    password: process.env.DB_PASS,
-    database: process.env.DB_NAME
+		user: process.env.DB_USER,
+		password: process.env.DB_PASS,
+		database: process.env.DB_NAME
 	});
 	db.connect((err) => {
 		if (err) {
@@ -33,9 +34,7 @@ export const load = ({ cookies }) => {
 			return new Error("Could not get data, probably Callums fault");
 		}
 	})
-	 
-	
-};
+}
 
 export const actions = {
 	// /**
