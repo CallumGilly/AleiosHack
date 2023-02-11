@@ -1,5 +1,4 @@
 <script>
-	import { confetti } from '@neoconfetti/svelte';
 	import { enhance } from '$app/forms';
 
 	export let data;
@@ -14,7 +13,7 @@
 	<meta name="description" content="Report an event" />
 </svelte:head>
 
-<section>
+<div class="app">
 	<form
 		method="POST"
 		use:enhance={() => {
@@ -29,7 +28,7 @@
 		>
 		<button disabled={!submittable}>Submit</button>
 	</form>
-</section>
+</div>
 
 <style>
 	form {
