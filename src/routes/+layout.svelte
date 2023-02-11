@@ -1,18 +1,18 @@
 <script>
-	import Header from './Header.svelte';
 	import './styles.css';
+	import ReportButton from './report-button.svelte';
+	import AnalyticsButton from './analytics-button.svelte';
+	import Map from './map.svelte';
 </script>
 
 <div class="app">
-	<!-- <Header /> -->
+	<AnalyticsButton />
 
 	<main>
 		<slot />
 	</main>
 
-	<footer>
-		<p>visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to learn SvelteKit</p>
-	</footer>
+	<ReportButton />
 </div>
 
 <style>
