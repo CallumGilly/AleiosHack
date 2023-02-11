@@ -21,7 +21,7 @@
 	    	}
 	  	).addTo(m);
 
-		m.on("locationfound", function(ev) {
+		m.once("locationfound", function(ev) {
 			if (!marker) {
 				marker = L.marker(ev.latlng);
 			} else {
