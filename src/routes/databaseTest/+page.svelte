@@ -4,7 +4,7 @@
 	console.log(data);
 </script>
 
-<svelte:window on:keydown={keydown} />
+<!-- <svelte:window on:keydown={keydown} /> -->
 
 <svelte:head>
 	<title>Sverdle</title>
