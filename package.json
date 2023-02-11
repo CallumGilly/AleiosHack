@@ -1,28 +1,28 @@
 {
-  "name": "aleioshack",
-  "version": "2.0.0",
-  "description": "Repo for code from the 2023 Aleios Hack at University of south",
-  "main": "index.js",
-  "scripts": {
-    "dev": "vite dev",
+	"name": "aleioshack",
+	"version": "2.0.0",
+	"description": "Repo for code from the 2023 Aleios Hack at University of south",
+	"main": "index.js",
+	"scripts": {
+		"dev": "vite dev",
 		"build": "vite build",
 		"preview": "vite preview",
 		"test": "playwright test",
 		"test:unit": "vitest",
 		"lint": "prettier --plugin-search-dir . --check . && eslint .",
 		"format": "prettier --plugin-search-dir . --write ."
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/CallumGilly/AleiosHack.git"
-  },
-  "author": "🟠⚫🍑🍆",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/CallumGilly/AleiosHack/issues"
-  },
-  "homepage": "https://github.com/CallumGilly/AleiosHack#readme",
-  "devDependencies": {
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/CallumGilly/AleiosHack.git"
+	},
+	"author": "🟠⚫🍑🍆",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/CallumGilly/AleiosHack/issues"
+	},
+	"homepage": "https://github.com/CallumGilly/AleiosHack#readme",
+	"devDependencies": {
 		"@fontsource/fira-mono": "^4.5.10",
 		"@neoconfetti/svelte": "^1.0.0",
 		"@playwright/test": "^1.28.1",
