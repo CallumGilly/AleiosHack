@@ -1,6 +1,6 @@
 // import { createRequire } from "module";
 // const require = createRequire(import.meta.url);
-import getRowsFromDB from "../../lib/server/database";
+import getRowsFromDB from "$lib/server/database";
 // const mysql = require("mysql");
 // export function async load() {
 export const load = async ({ cookies }) => {
