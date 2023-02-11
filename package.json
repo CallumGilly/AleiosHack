@@ -41,8 +41,9 @@
   },
   "type": "module",
   "dependencies": {
-    "bootstrap": "^5.2.3",
     "leaflet": "^1.9.3",
-    "mysql": "^2.18.1"
+    "bootstrap": "^5.2.3",
+    "mysql": "^2.18.1",
+    "svelte-forms": "^2.3.1"
   }
 }
