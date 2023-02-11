@@ -14,7 +14,7 @@
 	      		attribution: `&copy;<a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a>,
 	        	&copy;<a href="https://carto.com/attributions" target="_blank">CARTO</a>`,
 	      		subdomains: 'abcd',
-	      		maxZoom: 14,
+	      		maxZoom: 20,
 	    	}
 	  	).addTo(m);
 
@@ -28,7 +28,7 @@
 	<main>
 		<slot />
 	</main>
-	
+
 	<div class="map" style="height:100vh;width:100vw;z-index:0" use:create_map />
 	<ReportButton />
 </div>
