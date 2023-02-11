@@ -14,7 +14,7 @@ export const load = async ({ cookies }) => {
 		password: process.env.DB_PASS,
 		database: process.env.DB_NAME
 	});
-	return {code: 67};
+	// return {code: 67};
 	db.connect((err) => {
 		if (err) {
 			console.error(`err ${err}`);
