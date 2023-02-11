@@ -15,14 +15,14 @@ export const load = ({ cookies }) => {
 	});
 	db.connect((err) => {
 		if (err) {
-			console.error(err);
+			console.error(`err ${err}`);
 		} else {
 			db.query('SELECT * FROM Hack.reports', [], (err, res) => {
 				if (err) {
 					console.error("BAD REQUEST");
 				} else {
 					//modify received data
-					return {res}
+					return {code: 69 data: res}
 				}
 			});
 			return new Error("Could not get data, probably Callums fault");
