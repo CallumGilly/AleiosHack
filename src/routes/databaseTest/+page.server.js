@@ -3,7 +3,7 @@
 import mysql from "mysql";
 // const mysql = require("mysql");
 export const load = ({ cookies }) => {
-	return {Data: "Callums Data"};
+	// return {Data: "Callums Data"};
 	const db = mysql.createConnection({
 // 	const db = createConnection({
 		host: process.env.DB_HOST,
