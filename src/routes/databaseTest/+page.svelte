@@ -1,4 +1,4 @@
-<script>
+<!-- <script>
 	import { confetti } from '@neoconfetti/svelte';
 	import { enhance } from '$app/forms';
 
@@ -401,4 +401,4 @@
 			transform: translateX(0);
 		}
 	}
-</style>
+</style> -->
