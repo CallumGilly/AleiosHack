@@ -22,7 +22,10 @@ export const load = ({ cookies }) => {
 					console.error("BAD REQUEST");
 				} else {
 					//modify received data
-					return {code: 69 data: res}
+					return {
+						code: 69,
+						data: res
+					}
 				}
 			});
 			return new Error("Could not get data, probably Callums fault");
