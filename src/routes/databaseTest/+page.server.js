@@ -13,7 +13,7 @@ export const load = ({ cookies }) => {
 	});
 	db.connect((err) => {
 		if (err) {
-			console.error("Could not connect to database");
+			console.error(err);
 		} else {
 			db.query('SELECT * FROM Hack.reports', [], (err, res) => {
 				if (err) {
