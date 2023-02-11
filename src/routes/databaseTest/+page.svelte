@@ -11,8 +11,5 @@
 	<meta name="description" content="A Callum clone written in SvelteKit" />
 </svelte:head>
 
-<h1>Test of data transfer {data.then(() => {
-	console.log(data.code);
-	return data.code;
-})}</h1>
+<h1>Test of data transfer {data}</h1>
 
