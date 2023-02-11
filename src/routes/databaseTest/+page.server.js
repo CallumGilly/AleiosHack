@@ -1,36 +1,13 @@
 // import { createRequire } from "module";
 // const require = createRequire(import.meta.url);
-import mysql from "mysql";
-import * as dotenv from "dotenv"
-dotenv.config();
+import dbCon from "../../lib/server/database";
 // const mysql = require("mysql");
-export const load = ({ cookies }) => {
-	// return {Data: "Callums Data"};
-	const db = mysql.createConnection({
-// 	const db = createConnection({
-		host: process.env.DB_HOST,
-    user: process.env.DB_USER,
-    password: process.env.DB_PASS,
-    database: process.env.DB_NAME
-	});
-	db.connect((err) => {
-		if (err) {
-			console.error(`err ${err}`);
-		} else {
-			db.query('SELECT * FROM Hack.reports', [], (err, res) => {
-				if (err) {
-					console.error("BAD REQUEST");
-				} else {
-					//modify received data
-					return {code: 69 data: res}
-				}
-			});
-			return new Error("Could not get data, probably Callums fault");
-		}
+// export function async load() {
+export const load = async ({ cookies }) => {
+	dbCon((res) => {
+		console.log(res);
 	})
-	 
-	
-};
+}
 
 export const actions = {
 	// /**
