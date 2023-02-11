@@ -22,6 +22,8 @@ export const load = ({ cookies }) => {
 					console.error("BAD REQUEST");
 				} else {
 					//modify received data
+					console.log("Data is:");
+					console.log(res);
 					return {
 						code: 69,
 						data: res
