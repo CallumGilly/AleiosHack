@@ -5,13 +5,13 @@
   "main": "index.js",
   "scripts": {
     "dev": "vite dev",
-		"build": "vite build",
-		"preview": "vite preview",
-		"test": "playwright test",
-		"test:unit": "vitest",
-		"lint": "prettier --plugin-search-dir . --check . && eslint .",
-		"format": "prettier --plugin-search-dir . --write .",
-		"lenovoRun": "vite preview --host "
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "playwright test",
+    "test:unit": "vitest",
+    "lint": "prettier --plugin-search-dir . --check . && eslint .",
+    "format": "prettier --plugin-search-dir . --write .",
+    "lenovoRun": "vite preview --host "
   },
   "repository": {
     "type": "git",
@@ -41,6 +41,7 @@
   "type": "module",
   "dependencies": {
     "bootstrap": "^5.2.3",
-    "leaflet": "^1.9.3"
+    "leaflet": "^1.9.3",
+    "mysql": "^2.18.1"
   }
 }
