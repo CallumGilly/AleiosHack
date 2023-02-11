@@ -1,7 +1,7 @@
 <script>
 	export let data;
 
-	console.log(data);
+	console.log(data.code);
 </script>
 
 <!-- <svelte:window on:keydown={keydown} /> -->
