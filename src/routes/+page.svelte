@@ -1,9 +1,9 @@
 <script>
-	
+
 </script>
 
 <svelte:head>
-	
+	<title>Map</title>
 </svelte:head>
 
 <section>
@@ -17,9 +17,5 @@
 		justify-content: center;
 		align-items: center;
 		flex: 0.6;
-	}
-
-	h1 {
-		width: 100%;
 	}
 </style>

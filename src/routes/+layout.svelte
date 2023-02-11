@@ -2,16 +2,29 @@
 	import './styles.css';
 	import ReportButton from './report-button.svelte';
 	import AnalyticsButton from './analytics-button.svelte';
-	import Map from './map.svelte';
+	import L from 'leaflet';
+
+	const initialView = [50.935396, -1.395846]
+	function create_map(container) {
+		let m = L.map(container, {preferCanvas: true}).setView(initialView, 15);
+
+		L.tileLayer(
+	    	'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',
+	    	{
+	      		attribution: `&copy;<a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a>,
+	        	&copy;<a href="https://carto.com/attributions" target="_blank">CARTO</a>`,
+	      		subdomains: 'abcd',
+	      		maxZoom: 14,
+	    	}
+	  	).addTo(m);
+
+    	return m;
+	}
 </script>
 
 <div class="app">
 	<AnalyticsButton />
-
-	<main>
-		<slot />
-	</main>
-
+	<div class="map" style="height:100vh;width:100vw;z-index:0" use:create_map />
 	<ReportButton />
 </div>
 
@@ -20,34 +33,5 @@
 		display: flex;
 		flex-direction: column;
 		min-height: 100vh;
-	}
-
-	main {
-		flex: 1;
-		display: flex;
-		flex-direction: column;
-		padding: 1rem;
-		width: 100%;
-		max-width: 64rem;
-		margin: 0 auto;
-		box-sizing: border-box;
-	}
-
-	footer {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		padding: 12px;
-	}
-
-	footer a {
-		font-weight: bold;
-	}
-
-	@media (min-width: 480px) {
-		footer {
-			padding: 12px 0;
-		}
 	}
 </style>
