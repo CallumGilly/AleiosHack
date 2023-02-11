@@ -4,12 +4,18 @@
 	import AnalyticsButton from './analytics-button.svelte';
 	import L from 'leaflet';
 
-	const initialView = [50.935396, -1.395846]
-	
-	let marker;
+	const INITIAL_VIEW = [50.935396, -1.395846]
+
+	let map;
+
+	function add_marker(location, reports) {
+		let marker = L.marker(location).addTo(map)
+			.bindPopup(reports + " reports in this area.")
+			.openPopup()
+	}
 
 	function create_map(container) {
-		let m = L.map(container, {preferCanvas: true}).setView(initialView, 15);
+		let m = L.map(container, {preferCanvas: true}).setView(INITIAL_VIEW, 15);
 
 		L.tileLayer(
 	    	'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',
@@ -29,9 +35,10 @@
 			}
 		})
 		
-		m.locate({setView: true, watch: true, maxZoom: 19});
+		m.locate({setView: true, watch: false, maxZoom: 19});
 
-    	return m;
+		map = m;
+		add_marker([50.935396, -1.395846], 2);
 	}
 </script>
 
