@@ -1,6 +1,20 @@
 # Created by https://www.toptal.com/developers/gitignore/api/svelte,node,python
 # Edit at https://www.toptal.com/developers/gitignore?templates=svelte,node,python
 
+.DS_Store
+node_modules
+/build
+/.svelte-kit
+/package
+.env
+.env.*
+!.env.example
+.vercel
+.output
+vite.config.js.timestamp-*
+vite.config.ts.timestamp-*
+
+
 ### Node ###
 # Logs
 logs
