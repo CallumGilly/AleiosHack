@@ -1,30 +1,31 @@
-const mysql = require(`mysql`);
-export const load = ({ cookies }) => {
+// import createConnection from "mysql";
+// export const load = ({ cookies }) => {
 
-	const db = mysql.createConnection({
-		host: process.env.DB_HOST,
-    user: process.env.DB_USER,
-    password: process.env.DB_PASS,
-    database: process.env.DB_NAME
-	});
-	db.connect((err) => {
-		if (err) {
-			console.error("Could not connect to database");
-		} else {
-			db.query('SELECT * FROM *', [], (err, res) => {
-				if (err) {
-					console.error("BAD REQUEST");
-				} else {
-					//modify received data
-					return res
-				}
-			});
-			return new Error("Could not get data, probably Callums fault");
-		}
-	})
+// 	// const db = mysql.createConnection({
+// 	const db = createConnection({
+// 		host: process.env.DB_HOST,
+//     user: process.env.DB_USER,
+//     password: process.env.DB_PASS,
+//     database: process.env.DB_NAME
+// 	});
+// 	db.connect((err) => {
+// 		if (err) {
+// 			console.error("Could not connect to database");
+// 		} else {
+// 			db.query('SELECT * FROM *', [], (err, res) => {
+// 				if (err) {
+// 					console.error("BAD REQUEST");
+// 				} else {
+// 					//modify received data
+// 					return res
+// 				}
+// 			});
+// 			return new Error("Could not get data, probably Callums fault");
+// 		}
+// 	})
 	 
 	
-};
+// };
 
 export const actions = {
 	// /**
