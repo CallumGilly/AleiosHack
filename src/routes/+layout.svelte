@@ -24,6 +24,11 @@
 
 <div class="app">
 	<AnalyticsButton />
+
+	<main>
+		<slot />
+	</main>
+	
 	<div class="map" style="height:100vh;width:100vw;z-index:0" use:create_map />
 	<ReportButton />
 </div>
