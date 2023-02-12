@@ -1,12 +1,14 @@
 <script>
 	import { enhance } from '$app/forms';
 	import Geolocation from 'svelte-geolocation';
+	import { text } from 'svelte/internal';
 
 	export let form;
 	let success;
 	let error;
 	let notSupported;
 	$: submittable = success;
+	let textbox;
 
 	let files;
 	let coords = [];
@@ -31,7 +33,8 @@
 		</select>
 
 		<label for="description" class="form-label">Description</label>
-		<input id="description" name="description" class="form-control" value={form?.email ?? ''} />
+		<input id="description" name="description" class="form-control" value={textbox ?? ''} />
+		<textarea bind:value={textbox}></textarea>
 
 		{#if files}
 			<label id="image-label" for="image-input" class="btn btn-success"
@@ -150,6 +153,10 @@
 		width: 50px;
 		height: 50px;
 		display: block;
+	}
+
+	#description {
+		display:none;
 	}
 
 	#image-input {
