@@ -81,9 +81,6 @@
 		align-items: center;
 		gap: 0.5rem;
 		border-radius: 10dvh;
-		position: absolute;
-		left: 2vw;
-		bottom: 2vw;
 		font-weight: bold;
 	}
 
