@@ -16,9 +16,10 @@ export const actions = {
 
 		let buffer = Buffer.from(await image.text());
 		try {
-			query("INSERT INTO Hack.reports (Longitude, Latitude, Image, Time, Category, Description) VALUES (?, ?, ? NOW(), ?, ?);",
-				[0.3, 0.4, buffer.toString('base64'), "Bob", description]
+			query("INSERT INTO Hack.reports (Longitude, Latitude, Time, Category, Description) VALUES (?, ?, NOW(), ?, ?);",
+				[0.3, 0.4, "Bob", description]
 			);
+			console.log(buffer.toString("base64"));
 		} catch (error) {
 			console.error(error);
 		}
