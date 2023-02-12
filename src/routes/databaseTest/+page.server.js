@@ -62,7 +62,7 @@ export const load = async () => {
 	// }
 
 	// console.log(cleanData);
-	return JSON.parse(JSON.stringify(dbResponse));
+	return {arr: JSON.parse(JSON.stringify(dbResponse))};
 	}
 
 export const actions = {
