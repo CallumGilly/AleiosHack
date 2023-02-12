@@ -46,11 +46,12 @@ print(groupeddf)
 groupeddf[10]=""
 for i in range(1,max(groupeddf[7])):
     df1 = df[df[7]==i]
-    df1[4] = df1[4].dt.date()
+    #df1[4] = df1[4].datetime.date()
+    df1[4] = pd.to_datetime(df1[4]).dt.date()
     df1 = df1.groupby(4,as_index=False).sum()
 
     df1 = df1.sort_values(by=[4],ascending=True)
-    df1[4] = df1[4].map(dt.datetime.toordinal)
+    df1[4] = df1[4].map(datetime.datetime.toordinal)
 
     f=np.polyfit(df1[4],df1[8],deg=1)
     for x in range(0,len(groupeddf.index)):
