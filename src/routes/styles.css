@@ -16,8 +16,11 @@
 	color: var(--color-text);
 }
 
+html, body {
+	height: 100%;
+}
+
 body {
-	min-height: 100vh;
 	margin: 0;
 	background-attachment: fixed;
 	background-color: rgb(255, 255, 255);
