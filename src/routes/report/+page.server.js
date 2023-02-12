@@ -18,7 +18,7 @@ export const actions = {
 		try {
 			// reader.onload(() => {
 				query("INSERT INTO Hack.reports (Longitude, Latitude, Time, Category, Description) VALUES (?, ?, NOW(), ?, ?);",
-					[location.long, location.lat, "Bob", description]
+					[location.long, location.lat, type, description]
 				);
 
 			// })
