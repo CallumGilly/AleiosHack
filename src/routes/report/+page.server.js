@@ -2,14 +2,14 @@ import query from "$lib/server/database";
 // import spawn from 'child_process';
 // import imageBlobReduce from "image-blob-reduce";
 
-import fs from "fs";
+// import fs from "fs";
 
 export const actions = {
 	default: async (event) => {
 		const data = await event.request.formData();
 		const type = data.get("type-select");
 		const description = data.get("description");
-		const image = data.get("image");
+		// const image = data.get("image");
 		const location = { lat: data.get("lat"), long: data.get("long") };
 		// console.log(type);
 		// console.log(description);
