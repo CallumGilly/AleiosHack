@@ -50,7 +50,8 @@ for i in range(1,max(groupeddf[7])):
 
     #print(df1[4].dtype)
     df1 = df1.groupby(4,as_index=False).sum()
-    df1[4]=df1[4].strftime("%Y-%m-%d")
+    x=df1[4]
+    x=x.strftime("%Y-%m-%d")
     print(df1[4])
     df1 = df1.sort_values(by=[4],ascending=True)
     df1[4] = df1[4].map(datetime.datetime.toordinal)
