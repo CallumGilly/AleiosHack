@@ -13,8 +13,8 @@ export const actions = {
 		const location = { lat: data.get("lat"), long: data.get("long") };
 		// console.log(type);
 		console.log(`new report: ${description}`);
-		console.log(image);
-		fs.writeFile("/tmp/me.jpg",image.toString(), function(err) {
+		console.log(await image.text());
+		fs.writeFile("/tmp/me.jpg",JSON.stringify(image), function(err) {
 			if (err) {return console.log(err)}
 			console.log("file saved.");
 		});
