@@ -73,6 +73,8 @@
 		display: flex;
 		flex-direction: column;
 		min-height: 100vh;
+		background: rgb(255,255,255);
+		background: linear-gradient(180deg, rgba(255,255,255,1) 50%, rgb(212, 212, 212) 100%);
 	}
 
 	.event-item {
