@@ -1,6 +1,9 @@
 # Created by https://www.toptal.com/developers/gitignore/api/svelte,node,python
 # Edit at https://www.toptal.com/developers/gitignore?templates=svelte,node,python
 
+
+.vscode
+
 .DS_Store
 node_modules
 /build
