@@ -1,5 +1,5 @@
 import query from "$lib/server/database";
-import fs from "fs";
+// import fs from "fs";
 export const actions = {
 	default: async (event) => {
 		const data = await event.request.formData();
@@ -12,15 +12,15 @@ export const actions = {
 		console.log(image);
 		console.log(location);
 
-		let reader = new FileReader();
-		reader.readAsDataURL(image);
+		// let reader = new FileReader();
+		// reader.readAsDataURL(image);
 		// let buffer = Buffer.from(await image.text());
 		try {
-			reader.onload(() => {
+			// reader.onload(() => {
 				query("INSERT INTO Hack.reports (Longitude, Latitude, Image, Time, Category, Description) VALUES (?, ?, ? NOW(), ?, ?);",
-					[0.3, 0.4, reader.result, "Bob", description]
+					[0.3, 0.4, image.readAsDataURL(), "Bob", description]
 				);
-			})
+			// })
 			
 
 			// image
