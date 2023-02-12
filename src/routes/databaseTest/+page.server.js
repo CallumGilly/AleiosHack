@@ -56,6 +56,7 @@ export const load = async () => {
 	let dbResponse = await foo();
 	let cleanData = [];
 	for (let index = 0; index < dbResponse.length; dbResponse++) {
+		console.log(`dbResponse`);
 		console.log(dbResponse[index]);
 		cleanData[index] = dbResponse[index].RowDataPacket;
 	}
