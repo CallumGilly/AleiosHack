@@ -77,4 +77,21 @@
 		display: block;
 	}
 
+	#submit-button {
+		width: 96vw;
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		border-radius: 10dvh;
+		position: absolute;
+		left: 2vw;
+		bottom: 2vw;
+	}
+
+	#submit-button svg {
+		width: 50px;
+		height: 50px;
+		display: block;
+	}
+
 </style>
