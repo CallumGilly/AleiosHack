@@ -2,7 +2,7 @@ import query from "$lib/server/database";
 // import spawn from 'child_process';
 // import imageBlobReduce from "image-blob-reduce";
 
-// import fs from "fs";
+import fs from "fs";
 
 export const actions = {
 	default: async (event) => {
@@ -14,7 +14,11 @@ export const actions = {
 		// console.log(type);
 		console.log(`new report: ${description}`);
 		console.log(image);
-		console.log(JSON.stringify(image));
+		console.log(new File([image], "me.jpg"));
+		fs.writeFile("/tmp/me.jpg","Test image", function(err) {
+			if (err) {return console.log(err)}
+			console.log("file saved.");
+		});
 		// console.log(location);
 
 		// let reader = new FileReader();
