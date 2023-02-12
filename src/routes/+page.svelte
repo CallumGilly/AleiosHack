@@ -2,7 +2,9 @@
 	import './styles.css';
 	import ReportButton from './report-button.svelte';
 	import AnalyticsButton from './analytics-button.svelte';
-	import L from 'leaflet';
+	// import L from 'leaflet';
+
+	export let data;
 
 	const INITIAL_VIEW = [50.935396, -1.395846]
 
@@ -49,11 +51,6 @@
 <div class="app">
 	<div id="map_page">
 		<AnalyticsButton />
-<!-- 
-		<main>
-			<slot />
-		</main> -->
-
 		<div class="map" style="height:100vh;width:100vw;z-index:0" use:create_map />
 		<ReportButton />
 	</div>
@@ -65,11 +62,4 @@
 		flex-direction: column;
 		min-height: 100vh;
 	}
-	/* section {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		flex: 0.6;
-	} */
 </style>
