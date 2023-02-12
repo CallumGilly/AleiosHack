@@ -46,7 +46,8 @@ print(groupeddf)
 groupeddf[10]=""
 for i in range(1,max(groupeddf[7])):
     df1 = df[df[7]==i]
-    df1[4] = df1[4].datetime.date()
+    #df1[4] = df1[4].datetime.date()
+    df1[4] = pd.to_datetimedf1([4]).datetime.date()
     df1 = df1.groupby(4,as_index=False).sum()
 
     df1 = df1.sort_values(by=[4],ascending=True)
