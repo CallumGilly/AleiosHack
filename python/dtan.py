@@ -3,6 +3,7 @@ import mysql.connector as sql
 import matplotlib
 from geopy.distance import geodesic
 import datetime
+import numpy as np
 
 db_connection = sql.connect(host='localhost',database='Hack',user='pythonApp',password='VerySecure127!')
 db_cursor = db_connection.cursor()
@@ -36,14 +37,4 @@ groupeddf = df.groupby(7,as_index=False).agg({1:'mean',2:'mean',8:'sum',5:'min'}
 groupeddf = groupeddf.sort_values(by=[8],ascending=False)
 groupeddf[9]=[1,len(groupeddf.index)]
 
-print(groupeddf)
-#groupeddf = groupeddf.rename(columns={'7':"groupID",'1':'avg_longitude','2':'avg_latitude','8':'frequency','5':'category','9':'rank'},inplace=True)
-groupID = groupeddf[7]
-avg_longtitude = groupeddf[1]
-avg_latitude = groupeddf[2]
-frequency = groupeddf[8]
-category = groupeddf[5]
-rank = groupeddf[9]
-
-groupeddf = pd.DataFrame(columns=[groupID,avg_longtitude,avg_latitude,frequency,category,rank])
-print(groupeddf)
+groupeddf.to_csv(r'/home/cwjg21/AleiosHack/python/analytics.txt',header=True,index=None,sep=',')
