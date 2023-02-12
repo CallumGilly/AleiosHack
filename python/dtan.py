@@ -61,6 +61,5 @@ for i in range(1,max(groupeddf["groupid"])):
 
 groupeddf['rank'] = groupeddf.index +1
 groupeddf.rename(columns={5:'category',1:'longitude',2:'latitude'},inplace=True)
-groupeddf = groupeddf.drop(groupeddf.loc[:,"index"],axis=1)
 print(groupeddf)
 groupeddf.to_csv(r'/home/cwjg21/AleiosHack/python/analytics.txt',header=True,index=None,sep=',')
