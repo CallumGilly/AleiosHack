@@ -1,30 +1,55 @@
 <script>
-	function open_report_menu() {
-        document.getElementById("map_page").style.visibility = "hidden";
-        
-    }
+	// function open_report_menu() {
+	//     document.getElementById("map_page").style.visibility = "hidden";
+
+	// }
 </script>
 
-<button id="report-button" type="button" class="btn btn-danger" on:click={open_report_menu}>
-    <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"><title>Alert Circle</title><path d="M448 256c0-106-86-192-192-192S64 150 64 256s86 192 192 192 192-86 192-192z" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="32"/><path d="M250.26 166.05L256 288l5.73-121.95a5.74 5.74 0 00-5.79-6h0a5.74 5.74 0 00-5.68 6z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/><path d="M256 367.91a20 20 0 1120-20 20 20 0 01-20 20z" fill="currentColor" stroke="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="0"/></svg>
-    Report
-</button>
+<!-- on:click={open_report_menu} -->
+<a href="/report">
+	<button id="report-button" type="button" class="btn btn-danger">
+		<svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"
+			><title>Alert Circle</title><path
+				d="M448 256c0-106-86-192-192-192S64 150 64 256s86 192 192 192 192-86 192-192z"
+				fill="none"
+				stroke="currentColor"
+				stroke-miterlimit="10"
+				stroke-width="32"
+			/><path
+				d="M250.26 166.05L256 288l5.73-121.95a5.74 5.74 0 00-5.79-6h0a5.74 5.74 0 00-5.68 6z"
+				fill="none"
+				stroke="currentColor"
+				stroke-linecap="round"
+				stroke-linejoin="round"
+				stroke-width="32"
+			/><path
+				d="M256 367.91a20 20 0 1120-20 20 20 0 01-20 20z"
+				fill="currentColor"
+				stroke="none"
+				stroke-linecap="round"
+				stroke-linejoin="round"
+				stroke-width="0"
+			/></svg
+		>
+		Report
+	</button>
+</a>
 
 <style>
-    #report-button {
-        width: 96vw;
-        display: flex;
-        align-items: center;
-        gap: .5rem;
-        border-radius: 10dvh;
-        position: absolute;
-        left: 2vw;
-        bottom: 2vw;
-    }
+	#report-button {
+		width: 96vw;
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		border-radius: 10dvh;
+		position: absolute;
+		left: 2vw;
+		bottom: 2vw;
+	}
 
 	#report-button svg {
 		width: 50px;
 		height: 50px;
-        display: block;
-	} 
+		display: block;
+	}
 </style>
