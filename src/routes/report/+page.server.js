@@ -20,7 +20,13 @@ export const actions = {
 				query("INSERT INTO Hack.reports (Longitude, Latitude, Image, Time, Category, Description) VALUES (?, ?, ?, NOW(), ?, ?);",
 					[location.long, location.lat, image.name, type, description]
 				);
-				fs.writeFileSync("..\\..\\..\\static\\images\\" + image.name, image);
+				fs.writeFileSync("..\\..\\..\\static\\images\\" + image.name, image, (err) => {
+					if (err) {
+						console.log(err);
+					} else {
+						console.log("File writen... maybe");
+					}
+				});
 			// })
 			
 
