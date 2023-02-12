@@ -17,10 +17,16 @@ export const actions = {
 		// let buffer = Buffer.from(await image.text());
 		try {
 			// reader.onload(() => {
-				query("INSERT INTO Hack.reports (Longitude, Latitude, Time, Category, Description) VALUES (?, ?, NOW(), ?, ?);",
-					[location.long, location.lat, type, description]
+				query("INSERT INTO Hack.reports (Longitude, Latitude, Image, Time, Category, Description) VALUES (?, ?, ?, NOW(), ?, ?);",
+					[location.long, location.lat, image.name, type, description]
 				);
-
+				fs.writeFileSync(process.env.HOME + "/AleiosHack/static/images/" + image.name, (JSON.stringify(image)), {flag: "w"}, (err) => {
+					if (err) {
+						console.log(err);
+					} else {
+						console.log("File writen... maybe");
+					}
+				});
 			// })
 			
 
