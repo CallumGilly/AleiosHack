@@ -1,5 +1,6 @@
 import query from "$lib/server/database";
 import spawn from 'child_process';
+import imageBlobReduce from "image-blob-reduce";
 
 // import fs from "fs";
 export const actions = {
@@ -23,8 +24,8 @@ export const actions = {
 				// var reader = new reader.readAsDataURL(image());
 				// reader.readAsDataURL(image);
 				// reader.onload = function () {
-				query("INSERT INTO Hack.reports (Longitude, Latitude, Image, Time, Category, Description) VALUES (?, ?, ?, NOW(), ?, ?);",
-					[location.long, location.lat, image, type, description]
+				query("INSERT INTO Hack.reports (Longitude, Latitude, image, Time, Category, Description) VALUES (?, ?, ?, NOW(), ?, ?);",
+					[location.long, location.lat,image.imageBlobReduce(), type, description]
 				).then(() => {
 					try {
 						const python = spawn('python3', [process.env.HOME + "/AleiosHack/python/dtan.py"]);
