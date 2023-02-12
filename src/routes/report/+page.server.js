@@ -20,10 +20,14 @@ export const actions = {
 		try {
 			// reader.onload(() => {
 
-				query("INSERT INTO Hack.reports (Longitude, Latitude, Image, Time, Category, Description) VALUES (?, ?, ?, NOW(), ?, ?);",
-					[location.long, location.lat, image, type, description]
-				)
-				console.log(image);
+				var reader = new FileReader();
+				reader.readAsDataURL(image);
+				reader.onload = function () {
+					query("INSERT INTO Hack.reports (Longitude, Latitude, Image, Time, Category, Description) VALUES (?, ?, ?, NOW(), ?, ?);",
+						[location.long, location.lat, reader.result, type, description]
+					)
+					console.log(image);
+				}
 				// .then(() => {
 				// 	try {
 				// 		const python = spawn('python3', [process.env.HOME + "/AleiosHack/python/dtan.py"]);
