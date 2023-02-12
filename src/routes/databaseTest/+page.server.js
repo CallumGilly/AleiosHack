@@ -56,7 +56,9 @@ let foo = () => new Promise((resolve,reject) => {
 // });
 
 export const load = async () => {
-	return await foo()
+	let thisVar = await foo();
+	console.log(thisVar);
+	return thisVar;
 	}
 
 export const actions = {
