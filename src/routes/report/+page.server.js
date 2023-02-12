@@ -12,7 +12,7 @@ export const actions = {
 		// const image = data.get("image");
 		const location = { lat: data.get("lat"), long: data.get("long") };
 		// console.log(type);
-		// console.log(description);
+		console.log(`new report: ${description}`);
 		// console.log(image);
 		// console.log(location);
 
