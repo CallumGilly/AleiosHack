@@ -44,5 +44,4 @@ for i in range(0,len(groupeddf.index)):
     i=i+1
 print(groupeddf)
 
-print(groupeddf)
 groupeddf.to_csv(r'/home/cwjg21/AleiosHack/python/analytics.txt',header=True,index=None,sep=',')
