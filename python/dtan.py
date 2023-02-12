@@ -36,5 +36,6 @@ groupeddf = df.groupby(7,as_index=False).agg({1:'mean',2:'mean',8:'sum',5:'min'}
 groupeddf = groupeddf.sort_values(by=[8],ascending=False)
 groupeddf[9]=[1,len(groupeddf.index)]
 
+print(groupeddf)
 groupeddf.rename(columns={7:"groupID",1:'avg_longitude',2:'avg_latitude',8:'frequency',5:'category',9:'rank'})
 print(groupeddf)
