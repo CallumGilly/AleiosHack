@@ -22,7 +22,7 @@ const query = (sql, data) => new Promise((resolve,reject) => {
       if (err) {
         reject(`err ${err}`);
       } else {
-        db.query(, [], (err, res) => {
+        db.query(sql, data, (err, res) => {
           if (err) {
             reject("BAD query");
           } else {
