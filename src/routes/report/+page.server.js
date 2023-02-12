@@ -7,18 +7,17 @@ export const actions = {
 		const type = data.get("type-select");
 		const description = data.get("description");
 		const image = data.get("image");
-		// if (description === "") {
-		// 	return fail(400, { description, missing: true });
-		// }
+		const location = { lat: data.get("lat"), long: data.get("long") };
 		console.log(type);
 		console.log(description);
 		console.log(image);
+		console.log(location);
 
-	
+
 		let buffer = Buffer.from(await image.text());
-    try {
-			query("INSERT INTO Hack.reports (Longitude, Latitude, Image, Time, Category, Description) VALUES (?, ?, ? NOW(), ?, ?);", 
-				[0.3,0.4, buffer.toString('base64'), "Bob", description]
+		try {
+			query("INSERT INTO Hack.reports (Longitude, Latitude, Image, Time, Category, Description) VALUES (?, ?, ? NOW(), ?, ?);",
+				[0.3, 0.4, buffer.toString('base64'), "Bob", description]
 			);
 		} catch (error) {
 			console.error(error);
