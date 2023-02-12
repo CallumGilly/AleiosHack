@@ -53,7 +53,7 @@
 		</table>
 	</section> -->
 		{#each data.arr as event}
-			<div class="btn btn-secondary event-item">
+			<div class="event-item">
 				<p>Category: {event.Category}<br>Description: {event.Description}<br>Coordinates: {event.Latitude}, {event.Longitude}<br>Time: {event.Time}</p>
 			</div>
 		{/each}
@@ -80,7 +80,8 @@
 		display: flex;
 		align-items: center;
 		gap: 0.5rem;
-		border-radius: 10dvh;
+		row-gap: 12px;
+		/* border-radius: 16px; */
 		font-weight: bold;
 	}
 
