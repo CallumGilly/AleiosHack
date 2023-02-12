@@ -1,5 +1,5 @@
 import query from "$lib/server/database";
-import spawn from 'child_process';
+// import spawn from 'child_process';
 // import imageBlobReduce from "image-blob-reduce";
 
 import fs from "fs";
@@ -11,10 +11,10 @@ export const actions = {
 		const description = data.get("description");
 		const image = data.get("image");
 		const location = { lat: data.get("lat"), long: data.get("long") };
-		console.log(type);
-		console.log(description);
-		console.log(image);
-		console.log(location);
+		// console.log(type);
+		// console.log(description);
+		// console.log(image);
+		// console.log(location);
 
 		// let reader = new FileReader();
 		// reader.readAsDataURL(image);
@@ -27,14 +27,15 @@ export const actions = {
 				// reader.onload = function () {
 				query("INSERT INTO Hack.reports (Longitude, Latitude, Time, Category, Description) VALUES (?, ?, NOW(), ?, ?);",
 					[location.long, location.lat, type, description]
-				)
+				);
 				// .then(() => {
 				// 	try {
 				// 		const python = spawn('python3', [process.env.HOME + "/AleiosHack/python/dtan.py"]);
 				// 		python.on("close", (code) => {
 				// 			console.log(`Python ran with code ${code}`);
 				// 			var data = fs.readFileSync("../../../python/analytics.csv");
-				// 			data.split("\n").forEach(line => {
+				// 			console.log(data.toString());
+				// 			data.toString.forEach(line => {
 				// 				query("INSERT INTO Hack.reports (groupid,avglongitude,avglatitude,frequency,category,)")
 				// 			});
 				// 		});
