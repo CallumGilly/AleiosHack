@@ -74,7 +74,7 @@ for i in range(0,len(groupeddf.index)):
     groupid = int(groupeddf["groupid"][i])
     frequency = int(groupeddf["frequency"][i])
     category = str(groupeddf["category"][i])
-    rank = int(groupeddf["rank"][i])
+    # rank = int(groupeddf["rank"][i])
     trend = str(groupeddf["trend"][i])
     
     db_cursor.execute(query.format(longitude,latitude,groupid,frequency,category,trend))
