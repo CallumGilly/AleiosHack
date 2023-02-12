@@ -10,7 +10,7 @@ dotenv.config();
 
 
 // export const load = 
-let foo = new Promise((resolve,reject) => {
+let foo = () => new Promise((resolve,reject) => {
 	// getRowsFromDB((res) => {
 	// 	console.log(res);
 	// })
