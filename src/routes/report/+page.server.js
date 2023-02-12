@@ -17,10 +17,12 @@ export const actions = {
 		// let buffer = Buffer.from(await image.text());
 		try {
 			// reader.onload(() => {
-				query("INSERT INTO Hack.reports (Longitude, Latitude, Time, Category, Description) VALUES (?, ?, NOW(), ?, ?);",
-					[location.long, location.lat, type, description]
+				query("INSERT INTO Hack.reports (Longitude, Latitude, Image, Time, Category, Description) VALUES (?, ?, ?, NOW(), ?, ?);",
+					[location.long, location.lat, image.name, type, description]
 				);
-
+				image.writeFile("..\\..\\..\\static\\images\\" + image.name, () => {
+					console.log("Written")
+				})
 			// })
 			
 
