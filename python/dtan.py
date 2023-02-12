@@ -64,7 +64,7 @@ groupeddf.rename(columns={5:'category',1:'longitude',2:'latitude'},inplace=True)
 print(groupeddf)
 
 db_cursor.execute('DELETE FROM Hack.analysis')
-query = 'INSERT INTO Hack.analysis (avglongitude,avglatitude,groupid,frequency,category,trend,rank) VALUES ({},{},{},{},{},{},{})'
+query = 'INSERT INTO Hack.analysis (avglongitude,avglatitude,groupid,frequency,category,trend,Rank) VALUES ({},{},{},{},{},{},{})'
 
 #groupeddf.to_csv(r'/home/cwjg21/AleiosHack/python/analytics.txt',header=True,index=None,sep=',')
 
