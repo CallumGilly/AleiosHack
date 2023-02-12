@@ -29,8 +29,9 @@ for i in range(0,rows_count):
             
         group=group+1
 
-df[8] =1
+df[8]=1
+df[9]=df[5]
 
-groupeddf = df.groupby(7,as_index=False).agg({1:'mean',2:'mean',8:'sum'})
 
-print(df)
+groupeddf = df.groupby([7,5],as_index=False).agg({1:'mean',2:'mean',8:'sum'})
+print(groupeddf)
