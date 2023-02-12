@@ -4,8 +4,6 @@ import basicSsl from '@vitejs/plugin-basic-ssl';
 
 export default defineConfig({
 	server: {
-		https: true,
-		// proxy: {} <==
 	},
 	plugins: [basicSsl(), sveltekit()],
 	test: {
