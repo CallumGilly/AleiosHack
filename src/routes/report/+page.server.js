@@ -14,8 +14,7 @@ export const actions = {
 		console.log(description);
 		console.log(image);
 
-		query(```INSERT INTO Hack.reports (Longitude, Latitude, Image, Time, Category, Description) 
-			VALUES (?, ?, ?, NOW(), ?, ?);```, 
+		query("INSERT INTO Hack.reports (Longitude, Latitude, Image, Time, Category, Description) VALUES (?, ?, ?, NOW(), ?, ?);", 
 			[0.3,0.4,image, "Bob", "What trash"]
 		);
 	}
