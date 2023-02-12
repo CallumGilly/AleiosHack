@@ -36,10 +36,7 @@ let foo = () => new Promise((resolve,reject) => {
             console.log("Data is:");
             console.log(res);
 						// out = res;
-            resolve({
-              code: 69,
-              data: res
-            });
+            resolve(res);
           }
         });
       }
@@ -56,9 +53,14 @@ let foo = () => new Promise((resolve,reject) => {
 // });
 
 export const load = async () => {
-	let thisVar = await foo();
-	console.log(thisVar);
-	return {code: thisVar.code};
+	let dbResponse = await foo();
+	let cleanData = [];
+	for (let index = 0; index < dbResponse.length; dbResponse++) {
+		cleanData[index] = dbResponse[index].RowDataPacket;
+	}
+
+	console.log(cleanData);
+	return {cleanData};
 	}
 
 export const actions = {
