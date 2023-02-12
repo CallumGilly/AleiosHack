@@ -78,6 +78,6 @@
 	#chart {
 		width: 96%;
 		height: 30vh;
-		top: 10vh;
+		margin-top: 10vh;
 	}
 </style>
