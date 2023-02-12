@@ -63,7 +63,7 @@ groupeddf['rank'] = groupeddf.index +1
 groupeddf.rename(columns={5:'category',1:'longitude',2:'latitude'},inplace=True)
 print(groupeddf)
 
-db_cursor.execute('DELETE * FROM Hack.analysis')
+db_cursor.execute('DELETE FROM Hack.analysis')
 query = "INSERT INTO Hack.analysis (avglongitude,avglatitude,groupid,frequency,category,rank,trend) VALUES (%s,%s,%s,%s,%s,%s,%s)"
 
 for i in range(1,len(groupeddf.index)):
