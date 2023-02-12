@@ -41,6 +41,7 @@ y=1
 for i in range(0,len(groupeddf.index)):
     groupeddf[9][i]=i
     i=i+1
+print(groupeddf)
 
 groupeddf[10] = ""
 
@@ -58,4 +59,5 @@ for i in range(1,max(groupeddf[7])):
         if(df[7][x]==i):
             groupeddf[10][x]= fin
 
+print(groupeddf)
 groupeddf.to_csv(r'/home/cwjg21/AleiosHack/python/analytics.txt',header=True,index=None,sep=',')
