@@ -12,24 +12,11 @@
 
 	let files;
 	let coords = [];
-
-	let textbox;
 </script>
 
-<section>
-	<Geolocation getPosition bind:coords bind:success bind:error bind:notSupported />
-	<form
 <section id = "report-page">
-	<Geolocation getPosition bind:coords bind:success let:loading let:error let:notSupported>
-		{#if notSupported}
-			Your browser does not support the Geolocation API.
-		{:else}{#if error}
-				An error occurred. {error.code} {error.message}
-			{/if}
-			<!-- {#if loading}
-				loading{/if} -->
-			{/if}</Geolocation
-	>
+	<Geolocation getPosition bind:coords bind:success bind:error bind:notSupported />
+	
 	<form id="report-form"
 		method="POST"
 		use:enhance={() => {
@@ -177,10 +164,6 @@
 		width: 30px;
 		height: 30px;
 		display: block;
-	}
-
-	#description {
-		display:none;
 	}
 
 	#image-input {
