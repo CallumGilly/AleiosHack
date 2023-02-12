@@ -9,11 +9,11 @@ export const actions = {
 		const data = await event.request.formData();
 		const type = data.get("type-select");
 		const description = data.get("description");
-		// const image = data.get("image");
+		const image = data.get("image");
 		const location = { lat: data.get("lat"), long: data.get("long") };
 		// console.log(type);
 		console.log(`new report: ${description}`);
-		// console.log(image);
+		console.log(image);
 		// console.log(location);
 
 		// let reader = new FileReader();
@@ -25,7 +25,7 @@ export const actions = {
 				// var reader = new reader.readAsDataURL(image());
 				// reader.readAsDataURL(image);
 				// reader.onload = function () {
-				query("INSERT INTO Hack.reports (Longitude, Latitude, Time, Category, Description) VALUES (?, ?, NOW(), ?, ?);",
+				query("INSERT INTO Hack.reports (Longitude, Latitude, Image, Time, Category, Description) VALUES (?, ?, NOW(), ?, ?);",
 					[location.long, location.lat, type, description]
 				);
 				// .then(() => {
