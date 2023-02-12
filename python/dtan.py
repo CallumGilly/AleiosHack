@@ -34,12 +34,14 @@ df[8]=1
 
 groupeddf = df.groupby(7,as_index=False).agg({1:'mean',2:'mean',8:'sum',5:'min'})
 groupeddf = groupeddf.sort_values(by=[8],ascending=False)
-groupeddf[9]= range(1,len(groupeddf.index))
+groupeddf[9]=[1,len(groupeddf.index)]
 
 groupeddf[10] = ""
+
 for i in range(1,max(groupeddf[7])):
     df1 = df[df[7]==i]
     df1 = df1.drop(df1.iloc[:,[0,1,2,3,5,6]],axis=1)
+    print(df1)
     df1 = df1.sort_values(by=[4],inplace=True)
     x = df1[4]
     df1[4] = df1[4].map(df.datetime.toordinal)
@@ -50,5 +52,4 @@ for i in range(1,max(groupeddf[7])):
         if(df[7][x]==i):
             groupeddf[10][x]= fin
 
-print(groupeddf)
 groupeddf.to_csv(r'/home/cwjg21/AleiosHack/python/analytics.txt',header=True,index=None,sep=',')
