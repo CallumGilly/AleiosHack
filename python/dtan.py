@@ -34,10 +34,10 @@ df[8]=1
 print(df)
 
 groupeddf = df.groupby(7,as_index=False).agg({1:'mean',2:'mean',8:'sum',5:'min'})
-groupeddf = groupeddf.sort_values(by=[8],ascending=False).reset_index()
+groupeddf = groupeddf.sort_values(by=[8],ascending=False).reset_index(drop=True)
 print(groupeddf)
 
-groupeddf[9]=groupeddf.index+1
+groupeddf[9]=groupeddf.index()+1
 #y=1
 #for i in range(0,len(groupeddf.index)):
 #    groupeddf[9][i]=y
