@@ -54,15 +54,15 @@ let foo = () => new Promise((resolve,reject) => {
 
 export const load = async () => {
 	let dbResponse = await foo();
-	let cleanData = [];
-	for (let index = 0; index < dbResponse.length; dbResponse++) {
-		console.log(`dbResponse`);
-		console.log(dbResponse[index][0]);
-		cleanData[index] = dbResponse[index].RowDataPacket;
-	}
+	// let cleanData = [];
+	// for (let index = 0; index < dbResponse.length; dbResponse++) {
+	// 	console.log(`dbResponse`);
+	// 	console.log(dbResponse[index].RowDataPacket);
+	// 	cleanData[index] = dbResponse[index].RowDataPacket;
+	// }
 
-	console.log(cleanData);
-	return {cleanData};
+	// console.log(cleanData);
+	return JSON.parse(JSON.stringify(dbResponse));
 	}
 
 export const actions = {
