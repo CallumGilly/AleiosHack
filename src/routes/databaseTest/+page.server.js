@@ -8,11 +8,12 @@ import mysql from "mysql";
 import * as dotenv from "dotenv"
 dotenv.config();
 
-export const load = async () => {
+// export const load = async () => {
+export const load = new Promise((resolve,reject) => {
 	// getRowsFromDB((res) => {
 	// 	console.log(res);
 	// })
-	let myPromise = new Promise(function(myResolve, myReject) {
+	// let myPromise = new Promise(function(myResolve, myReject) {
     const db = mysql.createConnection({
       // 	const db = createConnection({
       host: process.env.DB_HOST,
@@ -21,18 +22,20 @@ export const load = async () => {
       database: process.env.DB_NAME
     });
     // return {code: 67};
+		// let out;
     db.connect((err) => {
       if (err) {
-        myReject(`err ${err}`);
+        reject(`err ${err}`);
       } else {
         db.query('SELECT * FROM Hack.reports', [], (err, res) => {
           if (err) {
-            myReject("BAD query");
+            reject("BAD query");
           } else {
             //modify received data
             console.log("Data is:");
             console.log(res);
-            myResolve({
+						// out = res;
+            resolve({
               code: 69,
               data: res
             });
@@ -42,14 +45,14 @@ export const load = async () => {
     })
   });
 
-	return await myPromise.then(
-		(data) => {
-			console.log(`code is ${data.code}`);
-			return data;
-		}).catch((err) => {
-			console.log(err)
-		});
-}
+	// return await myPromise.then(
+	// 	(data) => {
+	// 		console.log(`code is ${data.code}`);
+	// 		return data;
+	// 	}).catch((err) => {
+	// 		console.log(err)
+	// 	});
+// });
 
 export const actions = {
 	// /**
