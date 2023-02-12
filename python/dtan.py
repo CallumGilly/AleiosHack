@@ -37,7 +37,7 @@ groupeddf = groupeddf.sort_values(by=[8],ascending=False)
 groupeddf[9]=[1,len(groupeddf.index)]
 
 groupeddf[10] = ""
-print(df.dtypes())
+print(df.dtypes)
 for i in range(1,max(groupeddf[7])):
     df1 = df[df[7]==i]
     df1 = df1.drop(df1.iloc[:,[0,1,2,3,5,6]],axis=1)
