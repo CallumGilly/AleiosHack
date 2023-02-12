@@ -13,11 +13,11 @@ const query = (sql, data) => new Promise((resolve,reject) => {
 
     db.connect((err) => {
       if (err) {
-        reject(`Connection error`);
+        reject(err);
       } else {
         db.query(sql, data, (err, res) => {
           if (err) {
-            reject("BAD query");
+            reject(err);
           } else {
             resolve(res);
           }
