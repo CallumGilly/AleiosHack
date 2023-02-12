@@ -16,7 +16,7 @@
 
 <section id = "report-page">
 	<Geolocation getPosition bind:coords bind:success bind:error bind:notSupported />
-	
+
 	<form id="report-form"
 		method="POST"
 		use:enhance={() => {
@@ -117,7 +117,7 @@
 <style>
 	#report-form {
 		width: 100vw;
-		height: 100vh;
+		height: 100dvh;
 		display: flex;
 		flex-direction: column;
 		flex: 1;
