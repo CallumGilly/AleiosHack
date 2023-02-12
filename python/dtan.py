@@ -33,4 +33,5 @@ df[8] =1
 groupeddf = df.groupby(7,as_index=False).agg({1:'mean',2:'mean',8:'sum'})
 
 print(df)
+print(df.dtypes)
 print(groupeddf)
