@@ -12,7 +12,7 @@ df = pd.DataFrame(table_rows)
 
 rows_count = len(df.index)
 df[7] = ""
-print(df)
+df1 = df[df[4]>=datetime.datetime.today() - datetime.timedelta(days=90)]
 
 group = 1
 
@@ -33,5 +33,4 @@ df[8] =1
 
 groupeddf = df.groupby(7,as_index=False).agg({1:'mean',2:'mean',8:'sum'})
 
-
-print(datetime.datetime.today() - datetime.timedelta(days=90))
+print(df)
