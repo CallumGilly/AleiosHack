@@ -42,6 +42,8 @@ export const load = async () => {
     })
   });
 
+	setTimeout(1000);
+
 	await myPromise.then(
 		(data) => {
 			console.log(`code is ${data.code}`);
