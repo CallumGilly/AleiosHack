@@ -38,7 +38,7 @@
 		m.locate({setView: true, watch: false, maxZoom: 19});
 
 		map = m;
-		add_marker([50.935396, -1.395846], 2);
+		add_marker([50.935396, -1.395846], 2); //demo
 	}
 </script>
 
@@ -64,12 +64,5 @@
 		display: flex;
 		flex-direction: column;
 		min-height: 100vh;
-	}
-	section {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		flex: 0.6;
 	}
 </style>
