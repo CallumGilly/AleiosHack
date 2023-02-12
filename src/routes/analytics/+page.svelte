@@ -11,7 +11,7 @@
 	<meta name="description" content="View analytics" />
 </svelte:head>
 
-<section>
+<section id="analytics-page">
 	<table id="chart"
 		class="charts-css column show-heading show-labels show-primary-axis show-4-secondary-axes show-data-axes data-spacing-15 hide-data"
 	>
@@ -52,6 +52,11 @@
 <CloseButton />
 
 <style>
+	#analytics-page {
+		width: 100vw;
+		height: 100dvh;
+	}
+
 	#chart {
 		width: 96%;
 		height: 30vh;
