@@ -14,7 +14,7 @@
 <div class="app">
 	<div id="map_page">
 		<AnalyticsButton />
-		<Map data={data}/>
+		<Map {data} />
 		<ReportButton />
 	</div>
 </div>
