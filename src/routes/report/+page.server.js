@@ -18,7 +18,7 @@ export const actions = {
 		try {
 			// reader.onload(() => {
 				query("INSERT INTO Hack.reports (Longitude, Latitude, Image, Time, Category, Description) VALUES (?, ?, ? NOW(), ?, ?);",
-					[0.3, 0.4, image.readAsDataURL(), "Bob", description]
+					[0.3, 0.4, image, "Bob", description]
 				);
 			// })
 			
