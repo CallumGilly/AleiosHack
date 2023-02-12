@@ -38,5 +38,5 @@ groupeddf[9]=[1,len(groupeddf.index)]
 
 print(groupeddf)
 #groupeddf = groupeddf.rename(columns={'7':"groupID",'1':'avg_longitude','2':'avg_latitude','8':'frequency','5':'category','9':'rank'},inplace=True)
-groupeddf.columns.values[7] = 'groupID'
+groupeddf.columns.values[0] = 'groupID'
 print(groupeddf)
