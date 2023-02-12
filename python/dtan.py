@@ -35,7 +35,7 @@ df[8]=1
 groupeddf = df.groupby(7,as_index=False).agg({1:'mean',2:'mean',8:'sum',5:'min'})
 groupeddf = groupeddf.sort_values(by=[8],ascending=False)
 print(groupeddf)
-groupeddf[9]=[1,len(groupeddf.index)]
+groupeddf[9]=[range(1,len(groupeddf.index))]
 
 groupeddf[10] = ""
 
