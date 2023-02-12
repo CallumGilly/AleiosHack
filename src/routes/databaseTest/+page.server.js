@@ -8,8 +8,9 @@ import mysql from "mysql";
 import * as dotenv from "dotenv"
 dotenv.config();
 
-// export const load = async () => {
-export const load = new Promise((resolve,reject) => {
+
+// export const load = 
+let foo = new Promise((resolve,reject) => {
 	// getRowsFromDB((res) => {
 	// 	console.log(res);
 	// })
@@ -53,6 +54,10 @@ export const load = new Promise((resolve,reject) => {
 	// 		console.log(err)
 	// 	});
 // });
+
+export const load = async () => {
+	return await foo()
+	}
 
 export const actions = {
 	// /**
