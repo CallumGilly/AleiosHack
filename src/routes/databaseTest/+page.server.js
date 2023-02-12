@@ -1,12 +1,9 @@
-// import { createRequire } from "module";
-// const require = createRequire(import.meta.url);
-import dbCon from "../../lib/server/database";
-// const mysql = require("mysql");
-// export function async load() {
-export const load = async ({ cookies }) => {
-	dbCon((res) => {
-		console.log(res);
-	})
+import query from "$lib/server/database";
+
+export const load = async () => {
+	let dbResponse = await query('SELECT * FROM Hack.reports', []);
+	
+	return {arr: JSON.parse(JSON.stringify(dbResponse))};
 }
 
 export const actions = {

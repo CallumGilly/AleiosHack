@@ -1,11 +1,11 @@
 <script>
-	import { enhance } from '$app/forms';
+	import HomeButton from './HomeButton.svelte';
 
-	export let data;
+	import ThankYou from './ThankYou.svelte';
+	import CloseButton from './CloseButton.svelte';
+	import ReportForm from './ReportForm.svelte';
 
 	export let form;
-
-	$: submittable = true;
 </script>
 
 <svelte:head>
@@ -14,30 +14,14 @@
 </svelte:head>
 
 <div class="app">
-	<form
-		method="POST"
-		use:enhance={() => {
-			return ({ update }) => {
-				update({ reset: false });
-			};
-		}}
-	>
-		<label
-			>Description
-			<input name="description" value={form?.email ?? ''}/></label
-		>
-		<button disabled={!submittable}>Submit</button>
-	</form>
+	{#if !form?.success}
+		<CloseButton />
+		<ReportForm />
+	{:else}
+		<ThankYou />
+		<HomeButton />
+	{/if}
 </div>
 
 <style>
-	form {
-		width: 100%;
-		height: 100%;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-		flex: 1;
-	}
 </style>

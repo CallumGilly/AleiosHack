@@ -2,8 +2,7 @@ import mysql from "mysql";
 import * as dotenv from "dotenv"
 dotenv.config();
 
-export async function getRowsFromDB() {
-  return new Promise(function(myResolve, myReject) {
+const query = (sql, data) => new Promise((resolve,reject) => {
     const db = mysql.createConnection({
       // 	const db = createConnection({
       host: process.env.DB_HOST,
@@ -11,29 +10,20 @@ export async function getRowsFromDB() {
       password: process.env.DB_PASS,
       database: process.env.DB_NAME
     });
-    // return {code: 67};
+
     db.connect((err) => {
       if (err) {
-        console.error(`err ${err}`);
+        reject(err);
       } else {
-        db.query('SELECT * FROM Hack.reports', [], (err, res) => {
+        db.query(sql, data, (err, res) => {
           if (err) {
-            console.error("BAD REQUEST");
+            reject(err);
           } else {
-            //modify received data
-            console.log("Data is:");
-            console.log(res);
-            myResolve({
-              code: 69,
-              data: res
-            });
+            resolve(res);
           }
         });
-        return new Error("Could not get data, probably Callums fault");
       }
     })
   });
 
-  // return {Data: "Callums Data"};
-  
-}
+  export default query;

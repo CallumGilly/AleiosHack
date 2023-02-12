@@ -1,6 +1,5 @@
 <script>
 	export let data;
-
 	console.log(data);
 </script>
 
@@ -11,5 +10,5 @@
 	<meta name="description" content="A Callum clone written in SvelteKit" />
 </svelte:head>
 
-<h1>Test of data transfer {data}</h1>
+<h1>Test of data transfer {data.arr}</h1>
 
