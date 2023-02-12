@@ -85,6 +85,7 @@
 		row-gap: 12px;
 		/* border-radius: 16px; */
 		font-weight: bold;
+		margin: auto;
 	}
 
 	#chart {
