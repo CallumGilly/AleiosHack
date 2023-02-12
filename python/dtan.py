@@ -59,5 +59,6 @@ for i in range(1,max(groupeddf[7])):
             groupeddf[10]=f[0]
 
 
+groupeddf['rank'] = groupeddf.index +1
 print(groupeddf)
 groupeddf.to_csv(r'/home/cwjg21/AleiosHack/python/analytics.txt',header=True,index=None,sep=',')
