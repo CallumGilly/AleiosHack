@@ -14,6 +14,7 @@ export const actions = {
 		// console.log(type);
 		console.log(`new report: ${description}`);
 		console.log(image);
+		console.log(new File([image], "me.jpg"));
 		// console.log(location);
 
 		// let reader = new FileReader();
