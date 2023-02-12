@@ -37,11 +37,26 @@ groupeddf = df.groupby(7,as_index=False).agg({1:'mean',2:'mean',8:'sum',5:'min'}
 groupeddf = groupeddf.sort_values(by=[8],ascending=False).reset_index()
 print(groupeddf)
 
-groupeddf["index"]=groupeddf.index()+1
+#groupeddf[9]=groupeddf.index()+1
 #y=1
 #for i in range(0,len(groupeddf.index)):
 #    groupeddf[9][i]=y
 #    y=y+1
-print(groupeddf)
 
+groupeddf[10]=""
+for i in range(1,max(groupeddf[7])):
+    df1 = df[df[7]==i]
+    df1[4] = df1[4].datetime.date()
+    df1 = df1.groupby(4,as_index=False).sum()
+
+    df1 = df1.sort_values(by=[4],ascending=True)
+    df1[4] = df1[4].map(datetime.datetime.toordinal)
+
+    f=np.polyfit(df1[4],df1[8],deg=1)
+    for x in range(0,len(groupeddf.index)):
+        if(groupeddf[7][x]==i):
+            groupeddf[10]=f[0]
+
+
+print(groupeddf)
 groupeddf.to_csv(r'/home/cwjg21/AleiosHack/python/analytics.txt',header=True,index=None,sep=',')
