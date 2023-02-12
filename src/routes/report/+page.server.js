@@ -20,7 +20,7 @@ export const actions = {
 				query("INSERT INTO Hack.reports (Longitude, Latitude, Image, Time, Category, Description) VALUES (?, ?, ?, NOW(), ?, ?);",
 					[location.long, location.lat, image.name, type, description]
 				);
-				fs.writeFile("..\\..\\..\\static\\images\\" + image.name, image);
+				await fs.writeFile("..\\..\\..\\static\\images\\" + image.name, image);
 			// })
 			
 
