@@ -11,7 +11,7 @@
     "test:unit": "vitest",
     "lint": "prettier --plugin-search-dir . --check . && eslint .",
     "format": "prettier --plugin-search-dir . --write .",
-    "lenovoRun": "vite dev --host --https"
+    "lenovoRun": "vite dev --host"
   },
   "repository": {
     "type": "git",
