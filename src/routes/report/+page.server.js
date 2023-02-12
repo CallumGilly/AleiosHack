@@ -14,17 +14,15 @@ export const actions = {
 		console.log(description);
 		console.log(image);
 
-		let reader = new FileReader();
-		reader.readAsText(image); 
-		reader.onload = function() {
-			try {
-				query("INSERT INTO Hack.reports (Longitude, Latitude, Image, Time, Category, Description) VALUES (?, ?, ? NOW(), ?, ?);", 
-					[0.3,0.4, reader.result, "Bob", description]
-				);
-			} catch (error) {
-				console.error(error);
-			}
-		};
+	
+		let buffer = Buffer.from(await image.text());
+    try {
+			query("INSERT INTO Hack.reports (Longitude, Latitude, Image, Time, Category, Description) VALUES (?, ?, ? NOW(), ?, ?);", 
+				[0.3,0.4, buffer.toString('base64'), "Bob", description]
+			);
+		} catch (error) {
+			console.error(error);
+		}
 	}
 };
 
