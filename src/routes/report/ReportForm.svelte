@@ -1,10 +1,14 @@
 <script>
 	import { enhance } from '$app/forms';
 	import Geolocation from 'svelte-geolocation';
+	import { text } from 'svelte/internal';
 
 	export let form;
 	let success;
+	let error;
+	let notSupported;
 	$: submittable = success;
+	let textbox;
 
 	let files;
 	let coords = [];
@@ -12,6 +16,9 @@
 	let textbox;
 </script>
 
+<section>
+	<Geolocation getPosition bind:coords bind:success bind:error bind:notSupported />
+	<form
 <section id = "report-page">
 	<Geolocation getPosition bind:coords bind:success let:loading let:error let:notSupported>
 		{#if notSupported}
@@ -96,6 +103,14 @@
 
 		<input name="long" type="input" class="location" value={coords[0]} />
 		<input name="lat" type="input" class="location" value={coords[1]} />
+		{#if notSupported}
+			Your browser does not support the Geolocation API.
+		{:else}{#if error}
+				An error occurred. {error.code} {error.message}
+			{/if}
+			<!-- {#if loading}
+				loading{/if} -->
+		{/if}
 
 		<button id="submit-button" class="btn btn-primary" disabled={!submittable}
 			><svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"
@@ -162,6 +177,10 @@
 		width: 30px;
 		height: 30px;
 		display: block;
+	}
+
+	#description {
+		display:none;
 	}
 
 	#image-input {

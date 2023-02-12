@@ -16,7 +16,7 @@
 <div class="app">
 	{#if !form?.success}
 		<CloseButton />
-		<ReportForm />
+		<ReportForm {form}/>
 	{:else}
 		<ThankYou />
 		<HomeButton />

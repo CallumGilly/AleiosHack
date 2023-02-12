@@ -4,6 +4,7 @@ export async function load() {
     // let dbResponse = await query('SELECT * FROM Hack.reports', []);
 
     // return { arr: JSON.parse(JSON.stringify(dbResponse)) };
+
     return {
         arr: [
             {
