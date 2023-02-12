@@ -48,8 +48,8 @@ groupeddf[10]=""
 for i in range(1,max(groupeddf[7])):
     df1 = df[df[7]==i]
     print(df1[4][0].date())
-    df1[['date','time']] = df1[4].str.split(" ",expand=True)
-    print(df1['date'])
+    df1[4] = df1[4].date()
+    print(df1[4])
     #print(df1[4].dtype)
     df1 = df1.groupby(4,as_index=False).sum()
 
