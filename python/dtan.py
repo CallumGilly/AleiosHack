@@ -47,6 +47,7 @@ groupeddf[10]=""
 
 for i in range(1,max(groupeddf[7])):
     df1 = df[df[7]==i]
+    print(df1[4][0].date())
     print(df1[4][1].date())
     print(df1[4])
     #print(df1[4].dtype)
