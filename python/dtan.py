@@ -39,4 +39,11 @@ groupeddf[9]=[1,len(groupeddf.index)]
 print(groupeddf)
 #groupeddf = groupeddf.rename(columns={'7':"groupID",'1':'avg_longitude','2':'avg_latitude','8':'frequency','5':'category','9':'rank'},inplace=True)
 groupID = groupeddf[7]
-print(groupID)
+avg_longtitude = groupeddf[1]
+avg_latitude = groupeddf[2]
+frequency = groupeddf[8]
+category = groupeddf[5]
+rank = groupeddf[9]
+
+groupeddf = pd.DataFrame(columns=[groupID,avg_longtitude,avg_latitude,frequency,category,rank])
+print(groupeddf)
