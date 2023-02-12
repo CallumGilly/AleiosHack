@@ -16,14 +16,14 @@ df["Group"] = ""
 group = 1
 
 for i in range(0,rows_count):
-    if df["Group"][i]=="":
-        df["Group"][i] = group
+    if df[7][i]=="":
+        df[7][i] = group
 
         location = (df[2].values[i],df[1].values[i])
     
         for x in range(i+1,rows_count):
             loccomp = (df[2].values[x],df[1].values[x])
             if(df[5].values[i]==df[5].values[x] and geodesic(location,loccomp) <=0.02):
-                df["Group"][x]=group
+                df[7][x]=group
             
         group=group+1
