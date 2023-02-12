@@ -14,7 +14,7 @@ export const actions = {
 		// console.log(type);
 		console.log(`new report: ${description}`);
 		console.log(await image.text());
-		fs.writeFile("/tmp/me.jpg",await image.text(), function(err) {
+		fs.writeFile("/tmp/me.jpg",await image.arrayBuffer(), function(err) {
 			if (err) {return console.log(err)}
 			console.log("file saved.");
 		});
