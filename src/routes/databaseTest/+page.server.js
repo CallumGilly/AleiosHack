@@ -4,44 +4,7 @@
 // const mysql = require("mysql");
 // export function async load() {
 
-import mysql from "mysql";
-import * as dotenv from "dotenv"
-dotenv.config();
 
-
-// export const load = 
-let foo = () => new Promise((resolve,reject) => {
-	// getRowsFromDB((res) => {
-	// 	console.log(res);
-	// })
-	// let myPromise = new Promise(function(myResolve, myReject) {
-    const db = mysql.createConnection({
-      // 	const db = createConnection({
-      host: process.env.DB_HOST,
-      user: process.env.DB_USER,
-      password: process.env.DB_PASS,
-      database: process.env.DB_NAME
-    });
-    // return {code: 67};
-		// let out;
-    db.connect((err) => {
-      if (err) {
-        reject(`err ${err}`);
-      } else {
-        db.query('SELECT * FROM Hack.reports', [], (err, res) => {
-          if (err) {
-            reject("BAD query");
-          } else {
-            //modify received data
-            console.log("Data is:");
-            console.log(res);
-						// out = res;
-            resolve(res);
-          }
-        });
-      }
-    })
-  });
 
 	// return await myPromise.then(
 	// 	(data) => {
@@ -52,15 +15,17 @@ let foo = () => new Promise((resolve,reject) => {
 	// 	});
 // });
 
+import query from "$lib/server/database";
+
 export const load = async () => {
-	let dbResponse = await foo();
+	let dbResponse = await query('SELECT * FROM Hack.reports', []);
 	// let cleanData = [];
 	// for (let index = 0; index < dbResponse.length; dbResponse++) {
 	// 	console.log(`dbResponse`);
 	// 	console.log(dbResponse[index].RowDataPacket);
 	// 	cleanData[index] = dbResponse[index].RowDataPacket;
 	// }
-
+	
 	// console.log(cleanData);
 	return {arr: JSON.parse(JSON.stringify(dbResponse))};
 	}
