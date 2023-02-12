@@ -2,6 +2,7 @@
 	import CloseButton from './CloseButton.svelte';
 	// import { onMount } from 'svelte';
 	import 'charts.css';
+	import { each } from 'svelte/internal';
 
 	export let data;
 </script>
@@ -13,7 +14,12 @@
 
 <div class="app">
 	<section id="analytics-page">
-		<table
+		{#each data.arr as event}
+			<div class="event-item">
+				<p>Category: {event.Category}<br>Description: {event.description}<br>Coordinates: {event.Latitude}, {event.Longitude}<br>Time: {event.Time}</p>
+			</div>
+		{/each}
+		<!-- <table
 			id="chart"
 			class="charts-css column show-heading show-labels show-primary-axis show-4-secondary-axes show-data-axes data-spacing-15"
 		>
@@ -48,7 +54,7 @@
 					<td style="--size:1.0;" />
 				</tr>
 			</tbody>
-		</table>
+		</table> -->
 	</section>
 
 	<CloseButton />
