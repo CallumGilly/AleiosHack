@@ -77,6 +77,7 @@ for i in range(0,len(groupeddf.index)):
     rank = int(groupeddf["rank"][i])
     trend = str(groupeddf["trend"][i])
     
+    print(rank)
     db_cursor.execute(query,(longitude,latitude,groupid,frequency,category,trend,rank))
 
 #groupeddf.to_csv(r'/home/cwjg21/AleiosHack/python/analytics.txt',header=True,index=None,sep=',')
