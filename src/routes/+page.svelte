@@ -1,5 +1,5 @@
 <script>
-	import './styles.css';
+	// import './styles.css';
 	import ReportButton from './report-button.svelte';
 	import Map from './Map.svelte';
 	import AnalyticsButton from './analytics-button.svelte';
