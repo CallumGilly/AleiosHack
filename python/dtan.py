@@ -38,7 +38,10 @@ groupeddf = groupeddf.sort_values(by=[8],ascending=False).reset_index()
 print(groupeddf)
 
 groupeddf[9]=groupeddf.index()+1
-groupeddf=groupeddf.drop(groupeddf.loc[:,'index'],axis=1)
+#y=1
+#for i in range(0,len(groupeddf.index)):
+#    groupeddf[9][i]=y
+#    y=y+1
 print(groupeddf)
 
 groupeddf.to_csv(r'/home/cwjg21/AleiosHack/python/analytics.txt',header=True,index=None,sep=',')
