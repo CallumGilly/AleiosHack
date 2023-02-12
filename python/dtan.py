@@ -71,10 +71,10 @@ query = "INSERT INTO Hack.analysis (avglongitude,avglatitude,groupid,frequency,c
 for i in range(0,len(groupeddf.index)):
     longitude = str(groupeddf["longitude"][i])
     latitude = str(groupeddf["latitude"][i])
-    groupid = groupeddf["groupid"][i]
-    frequency = groupeddf["frequency"][i]
-    category = groupeddf["category"][i]
-    rank = groupeddf["rank"][i]
+    groupid = int(groupeddf["groupid"][i])
+    frequency = int(groupeddf["frequency"][i])
+    category = str(groupeddf["category"][i])
+    rank = int(groupeddf["rank"][i]()
     trend = str(groupeddf["trend"][i])
     
     db_cursor.execute(query,(longitude,latitude,groupid,frequency,category,rank,trend))
