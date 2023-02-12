@@ -27,7 +27,7 @@ body {
 	background-color: rgb(255, 255, 255);
 }
 
-body div {
+#map_page {
 	height: 100%;
 }
 h1,
