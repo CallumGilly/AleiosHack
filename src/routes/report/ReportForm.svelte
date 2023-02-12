@@ -11,10 +11,14 @@
 </script>
 
 <section>
-	<Geolocation getPosition bind:coords bind:success let:notSupported>
+	<Geolocation getPosition bind:coords bind:success let:loading let:error let:notSupported>
 		{#if notSupported}
 			Your browser does not support the Geolocation API.
-		{/if}</Geolocation
+		{:else}{#if error}
+				An error occurred. {error.code} {error.message}
+			{/if}
+			{#if loading}
+				loading{/if}{/if}</Geolocation
 	>
 	<form
 		method="POST"
