@@ -54,7 +54,7 @@
 	</section> -->
 		{#each data.arr as event}
 			<div class="btn btn-secondary event-item">
-				<p>Category: {event.Category}<br>Description: {event.description}<br>Coordinates: {event.Latitude}, {event.Longitude}<br>Time: {event.Time}</p>
+				<p>Category: {event.Category}<br>Description: {event.Description}<br>Coordinates: {event.Latitude}, {event.Longitude}<br>Time: {event.Time}</p>
 			</div>
 		{/each}
 	</section>
@@ -73,6 +73,18 @@
 		display: flex;
 		flex-direction: column;
 		min-height: 100vh;
+	}
+
+	.event-item {
+		width: 96vw;
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		border-radius: 10dvh;
+		position: absolute;
+		left: 2vw;
+		bottom: 2vw;
+		font-weight: bold;
 	}
 
 	#chart {
