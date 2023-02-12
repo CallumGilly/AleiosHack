@@ -24,8 +24,8 @@ export const actions = {
 				// var reader = new reader.readAsDataURL(image());
 				// reader.readAsDataURL(image);
 				// reader.onload = function () {
-				query("INSERT INTO Hack.reports (Longitude, Latitude, image, Time, Category, Description) VALUES (?, ?, ?, NOW(), ?, ?);",
-					[location.long, location.lat,image.imageBlobReduce(), type, description]
+				query("INSERT INTO Hack.reports (Longitude, Latitude, Time, Category, Description) VALUES (?, ?, NOW(), ?, ?);",
+					[location.long, location.lat, type, description]
 				).then(() => {
 					try {
 						const python = spawn('python3', [process.env.HOME + "/AleiosHack/python/dtan.py"]);
