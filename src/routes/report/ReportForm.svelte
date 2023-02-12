@@ -17,8 +17,9 @@
 		{:else}{#if error}
 				An error occurred. {error.code} {error.message}
 			{/if}
-			{#if loading}
-				loading{/if}{/if}</Geolocation
+			<!-- {#if loading}
+				loading{/if} -->
+			{/if}</Geolocation
 	>
 	<form
 		method="POST"
