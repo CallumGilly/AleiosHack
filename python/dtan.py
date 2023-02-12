@@ -37,12 +37,12 @@ groupeddf = groupeddf.sort_values(by=[8],ascending=False)
 groupeddf[9]=[1,len(groupeddf.index)]
 
 groupeddf[10] = ""
+print(df.dtypes())
 for i in range(1,max(groupeddf[7])):
     df1 = df[df[7]==i]
     df1 = df1.drop(df1.iloc[:,[0,1,2,3,5,6]],axis=1)
-    df1[4] = pd.to_datetime(df1[4])
     print(df1)
-    df1 = df1.sort_values(by=['date'],inplace=True)
+    df1 = df1.sort_values(by=[4],inplace=True)
     x = df1[4]
     df1[4] = df1[4].map(df.datetime.toordinal)
 
