@@ -8,10 +8,10 @@
 	let map;
 	let marker;
 
-	function add_marker(location, reports, ) {
+	function add_marker(location, reports, type) {
 		marker = L.marker(location)
 			.addTo(map)
-			.bindPopup(reports + ' report in this area.');
+			.bindPopup(`${reports} ${type} report in this area`);
 		// .openPopup()
 	}
 
@@ -40,7 +40,7 @@
 		console.log(data);
 
 		data.arr.forEach((element) => {
-			add_marker([element.Latitude, element.Longitude], 1);
+			add_marker([element.Latitude, element.Longitude], 1, element.Category);
 		});
 	}
 </script>
