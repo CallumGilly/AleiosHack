@@ -27,7 +27,8 @@ body {
 	background-color: rgb(255, 255, 255);
 }
 
-#map_page {
+#map_page,
+#report-page {
 	height: 100%;
 }
 h1,
