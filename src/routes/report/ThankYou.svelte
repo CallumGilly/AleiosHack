@@ -13,7 +13,7 @@
 				d="M464 128L240 384l-96-96M144 384l-96-96M368 128L232 284"
 			/></svg
 		>
-		<h1>Thank you for your report!</h1>
+		<h1 id="thank-you-text">Thank you for your report!</h1>
 	</div>
 </section>
 
@@ -32,4 +32,9 @@
 	.thank-you svg {
 		width: 50vw;
 	}
+	
+/* 
+	#thank-you-text {
+		color: rgb(0, 230, 0);
+	} */
 </style>
