@@ -44,11 +44,10 @@ print(groupeddf)
 #    y=y+1
 
 groupeddf[10]=""
+
 for i in range(1,max(groupeddf[7])):
     df1 = df[df[7]==i]
-    for y in range(0,len(df1.index)):
-        df1[4][y] = df1[4][y].date()
-    #df1[4] = df1[4].datetime.date()
+    df1[4] = df1[4].strftime("%Y-%M-%D")
     #print(df1[4].dtype)
     df1 = df1.groupby(4,as_index=False).sum()
 
