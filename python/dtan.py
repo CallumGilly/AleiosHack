@@ -31,3 +31,6 @@ for i in range(0,rows_count):
 df[8] =1
 
 groupeddf = df.groupby(7,as_index=False).agg({1:'mean',2:'mean',8:'sum'})
+
+print(df)
+print(groupeddf)
