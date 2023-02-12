@@ -5,7 +5,7 @@ from geopy.distance import geodesic
 import datetime
 import numpy as np
 
-db_connection = sql.connect(host='localhost',database='Hack',user='pythonApp',password='VerySecure128!')
+db_connection = sql.connect(host='localhost',database='Hack',user='pythonApp',password='VerySecure127!')
 db_cursor = db_connection.cursor()
 db_cursor.execute('SELECT * FROM Hack.reports')
 table_rows = db_cursor.fetchall()
