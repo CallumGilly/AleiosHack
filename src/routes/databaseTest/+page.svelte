@@ -10,5 +10,5 @@
 	<meta name="description" content="A Callum clone written in SvelteKit" />
 </svelte:head>
 
-<h1>Test of data transfer {data.code}</h1>
+<h1>Test of data transfer {data.arr}</h1>
 

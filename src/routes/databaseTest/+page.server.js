@@ -1,34 +1,10 @@
-// import { createRequire } from "module";
-// const require = createRequire(import.meta.url);
-// import * as getRowsFromDB from "$lib/server/database";
-// const mysql = require("mysql");
-// export function async load() {
-
-
-
-	// return await myPromise.then(
-	// 	(data) => {
-	// 		console.log(`code is ${data.code}`);
-	// 		return data;
-	// 	}).catch((err) => {
-	// 		console.log(err)
-	// 	});
-// });
-
 import query from "$lib/server/database";
 
 export const load = async () => {
 	let dbResponse = await query('SELECT * FROM Hack.reports', []);
-	// let cleanData = [];
-	// for (let index = 0; index < dbResponse.length; dbResponse++) {
-	// 	console.log(`dbResponse`);
-	// 	console.log(dbResponse[index].RowDataPacket);
-	// 	cleanData[index] = dbResponse[index].RowDataPacket;
-	// }
 	
-	// console.log(cleanData);
 	return {arr: JSON.parse(JSON.stringify(dbResponse))};
-	}
+}
 
 export const actions = {
 	// /**
