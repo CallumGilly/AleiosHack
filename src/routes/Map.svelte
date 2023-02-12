@@ -45,7 +45,7 @@
 	}
 </script>
 
-<div class="map" style="height:100vh;width:100vw;z-index:0" use:create_map />
+<div class="map" style="height:100%;width:100%;z-index:0" use:create_map />
 
 <style>
 </style>

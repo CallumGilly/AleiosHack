@@ -64,15 +64,15 @@
 
 <style>
 	#analytics-page {
-		width: 100vw;
-		height: 100dvh;
+		width: 100%;
+		height: 100%;
 	}
 
 	.app {
 		overflow-y: auto;
 		display: flex;
 		flex-direction: column;
-		min-height: 100vh;
+		height: 100%;
 		background: rgb(255,255,255);
 		background: linear-gradient(180deg, rgba(255,255,255,1) 50%, rgb(212, 212, 212) 100%);
 	}
