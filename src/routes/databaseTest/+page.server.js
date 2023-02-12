@@ -38,14 +38,16 @@ export const load = async () => {
             });
           }
         });
-        myReject("Could not get data, probably Callums fault");
       }
     })
   });
 
-	myPromise.then((code) => {
-		console.log(`code is ${code}`);
-	})
+	myPromise.then(
+		(code) => {
+			console.log(`code is ${code}`);
+		}).catch((err) => {
+			console.log(err)
+		});
 }
 
 export const actions = {
