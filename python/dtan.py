@@ -40,8 +40,8 @@ print(groupeddf)
 groupeddf[9]=""
 y=1
 for i in range(0,len(groupeddf.index)):
-    groupeddf[9][i]=i
-    i=i+1
+    groupeddf[9][i]=y
+    y=y+1
 print(groupeddf)
 
 groupeddf.to_csv(r'/home/cwjg21/AleiosHack/python/analytics.txt',header=True,index=None,sep=',')
