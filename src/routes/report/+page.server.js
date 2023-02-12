@@ -1,5 +1,5 @@
 import query from "$lib/server/database";
-// const {spawn} = require('child_process');
+const {spawn} = require('child_process');
 
 // import fs from "fs";
 export const actions = {
@@ -20,25 +20,28 @@ export const actions = {
 		try {
 			// reader.onload(() => {
 
-				var reader = new reader.readAsDataURL(image());
-				reader.readAsDataURL(image);
-				reader.onload = function () {
-					query("INSERT INTO Hack.reports (Longitude, Latitude, Image, Time, Category, Description) VALUES (?, ?, ?, NOW(), ?, ?);",
-						[location.long, location.lat, reader.result, type, description]
-					)
-					console.log(image);
-				}
-				// .then(() => {
-				// 	try {
-				// 		const python = spawn('python3', [process.env.HOME + "/AleiosHack/python/dtan.py"]);
-				// 		python.on("close", (code) => {
-				// 			console.log(`Python ran with code ${code}`);
-				// 		});
-				// 	} catch (err) {
-				// 			console.log("Python could not run:");
-				// 			console.log(err);
-				// 	}
-				// });
+				// var reader = new reader.readAsDataURL(image());
+				// reader.readAsDataURL(image);
+				// reader.onload = function () {
+				query("INSERT INTO Hack.reports (Longitude, Latitude, Image, Time, Category, Description) VALUES (?, ?, ?, NOW(), ?, ?);",
+					[location.long, location.lat, image, type, description]
+				).then(() => {
+					try {
+						const python = spawn('python3', [process.env.HOME + "/AleiosHack/python/dtan.py"]);
+						python.on("close", (code) => {
+							console.log(`Python ran with code ${code}`);
+						});
+					} catch (err) {
+							console.log("Python could not run:");
+							console.log(err);
+					}
+				});
+				// query("INSERT INTO Hack.reports (Longitude, Latitude, Image, Time, Category, Description) VALUES (?, ?, ?, NOW(), ?, ?);",
+					// [location.long, location.lat, reader.result, type, description]
+				// )
+				// 	console.log(image);
+				// }
+				
 				// fs.writeFileSync(process.env.HOME + "/AleiosHack/static/images/" + image.name, buffer.toString("base64"), {flag: "w"}, (err) => {
 				// 	if (err) {
 				// 		console.log(err);
