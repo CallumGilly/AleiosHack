@@ -19,8 +19,9 @@ export const actions = {
 		// let buffer = Buffer.from(await image.text());
 		try {
 			// reader.onload(() => {
+
 				query("INSERT INTO Hack.reports (Longitude, Latitude, Image, Time, Category, Description) VALUES (?, ?, ?, NOW(), ?, ?);",
-					[location.long, location.lat, image.name, type, description]
+					[location.long, location.lat, image, type, description]
 				)
 				console.log(image);
 				// .then(() => {
