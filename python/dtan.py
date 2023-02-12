@@ -77,4 +77,4 @@ for i in range(0,len(groupeddf.index)):
     
     #db_cursor.execute(query.format(longitude,latitude,groupid,frequency,category,trend))
 
-groupeddf.to_csv(r'/home/cwjg21/AleiosHack/python/analytics.txt',header=True,index=None,sep=',')
+groupeddf.to_csv(r'/home/cwjg21/AleiosHack/python/analytics.csv',header=True,index=None,sep=',')
