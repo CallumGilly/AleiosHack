@@ -4,6 +4,8 @@
 
 	export let form;
 	let success;
+	let error;
+	let notSupported;
 	$: submittable = success;
 
 	let files;
@@ -11,16 +13,7 @@
 </script>
 
 <section>
-	<Geolocation getPosition bind:coords bind:success let:loading let:error let:notSupported>
-		{#if notSupported}
-			Your browser does not support the Geolocation API.
-		{:else}{#if error}
-				An error occurred. {error.code} {error.message}
-			{/if}
-			<!-- {#if loading}
-				loading{/if} -->
-			{/if}</Geolocation
-	>
+	<Geolocation getPosition bind:coords bind:success bind:error bind:notSupported />
 	<form
 		method="POST"
 		use:enhance={() => {
@@ -92,6 +85,14 @@
 
 		<input name="long" type="input" class="location" value={coords[0]} />
 		<input name="lat" type="input" class="location" value={coords[1]} />
+		{#if notSupported}
+			Your browser does not support the Geolocation API.
+		{:else}{#if error}
+				An error occurred. {error.code} {error.message}
+			{/if}
+			<!-- {#if loading}
+				loading{/if} -->
+		{/if}
 
 		<button id="submit-button" class="btn btn-primary" disabled={!submittable}
 			><svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"
