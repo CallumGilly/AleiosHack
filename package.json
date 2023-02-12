@@ -46,6 +46,7 @@
     "image-blob-reduce": "^4.1.0",
     "leaflet": "^1.9.3",
     "mysql": "^2.18.1",
-    "pica": "^9.0.1"
+    "pica": "^9.0.1",
+    "svelte-geolocation": "^0.3.0"
   }
 }

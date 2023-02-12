@@ -1,11 +1,17 @@
 <script>
 	import { enhance } from '$app/forms';
+	import Geolocation from 'svelte-geolocation';
+	// import { get } from 'svelte/store';
 
 	export let data;
 
 	export let form;
 	//data.description ? true : false
-	$: submittable = true;
+	let success;
+	$: submittable = success;
+
+	let files;
+	let coords = [];
 </script>
 
 <svelte:head>
@@ -14,6 +20,11 @@
 </svelte:head>
 
 <div class="app">
+	<Geolocation getPosition bind:coords bind:success let:notSupported>
+		{#if notSupported}
+			Your browser does not support the Geolocation API.
+		{/if}</Geolocation
+	>
 	<form
 		method="POST"
 		use:enhance={() => {
@@ -31,8 +42,58 @@
 		<label for="description" class="form-label">Description</label>
 		<input id="description" name="description" class="form-control" value={form?.email ?? ''} />
 
-		<label id="image-label" for="image" class="btn btn-primary">Take Photo</label>
-		<input id="image" name="image" type="file" accept="image/*" capture class="form-control mb-3" />
+		{#if files}
+			<label id="image-label" for="image-input" class="btn btn-success"
+				><svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"
+					><title>Checkmark</title><path
+						fill="none"
+						stroke="currentColor"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						stroke-width="32"
+						d="M416 128L192 384l-96-96"
+					/></svg
+				>Retry</label
+			>{:else}
+			<label id="image-label" for="image-input" class="btn btn-primary"
+				><svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"
+					><title>Camera</title><path
+						d="M350.54 148.68l-26.62-42.06C318.31 100.08 310.62 96 302 96h-92c-8.62 0-16.31 4.08-21.92 10.62l-26.62 42.06C155.85 155.23 148.62 160 140 160H80a32 32 0 00-32 32v192a32 32 0 0032 32h352a32 32 0 0032-32V192a32 32 0 00-32-32h-59c-8.65 0-16.85-4.77-22.46-11.32z"
+						fill="none"
+						stroke="currentColor"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						stroke-width="32"
+					/><circle
+						cx="256"
+						cy="272"
+						r="80"
+						fill="none"
+						stroke="currentColor"
+						stroke-miterlimit="10"
+						stroke-width="32"
+					/><path
+						fill="none"
+						stroke="currentColor"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						stroke-width="32"
+						d="M124 158v-22h-24v22"
+					/></svg
+				>Take Photo</label
+			>{/if}
+		<input
+			id="image-input"
+			name="image"
+			type="file"
+			accept="image/*"
+			capture
+			class="form-control mb-3"
+			bind:files
+		/>
+
+		<input name="long" type="input" class="location" value={coords[0]} />
+		<input name="lat" type="input" class="location" value={coords[1]} />
 
 		<button id="submit-button" class="btn btn-primary" disabled={!submittable}
 			><svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"
@@ -77,21 +138,25 @@
 		display: block;
 	}
 
-	#submit-button {
+	#image-label {
 		width: 96vw;
 		display: flex;
 		align-items: center;
 		gap: 0.5rem;
 		border-radius: 10dvh;
-		position: absolute;
-		left: 2vw;
-		bottom: 2vw;
 	}
 
-	#submit-button svg {
+	#image-label svg {
 		width: 50px;
 		height: 50px;
 		display: block;
 	}
 
+	#image-input {
+		display: none;
+	}
+
+	.location {
+		display: none;
+	}
 </style>
