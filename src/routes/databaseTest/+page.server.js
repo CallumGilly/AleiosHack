@@ -12,7 +12,7 @@ export const load = async () => {
 	// getRowsFromDB((res) => {
 	// 	console.log(res);
 	// })
-	return new Promise(function(myResolve, myReject) {
+	let myPromise = new Promise(function(myResolve, myReject) {
     const db = mysql.createConnection({
       // 	const db = createConnection({
       host: process.env.DB_HOST,
@@ -42,6 +42,10 @@ export const load = async () => {
       }
     })
   });
+
+	myPromise.then((code) => {
+		console.log(`code is ${code}`);
+	})
 }
 
 export const actions = {
