@@ -11,50 +11,59 @@
 	<meta name="description" content="View analytics" />
 </svelte:head>
 
-<section id="analytics-page">
-	<table id="chart"
-		class="charts-css column show-heading show-labels show-primary-axis show-4-secondary-axes show-data-axes data-spacing-15 hide-data"
-	>
-		<caption> Trends </caption>
+<div class="app">
+	<section id="analytics-page">
+		<table
+			id="chart"
+			class="charts-css column show-heading show-labels show-primary-axis show-4-secondary-axes show-data-axes data-spacing-15"
+		>
+			<caption> Trends </caption>
 
-		<thead>
-			<tr>
-				<th scope="col"> Year </th>
-				<th scope="col"> Value </th>
-			</tr>
-		</thead>
+			<thead>
+				<tr>
+					<th scope="col"> Year </th>
+					<th scope="col"> Value </th>
+				</tr>
+			</thead>
 
-		<tbody>
-			<tr>
-				<th> 2016 </th>
-				<td style="--size:0.2;" />
-			</tr>
-			<tr>
-				<th> 2017 </th>
-				<td style="--size:0.4;" />
-			</tr>
-			<tr>
-				<th> 2018 </th>
-				<td style="--size:0.6;" />
-			</tr>
-			<tr>
-				<th> 2019 </th>
-				<td style="--size:0.8;" />
-			</tr>
-			<tr>
-				<th> 2020 </th>
-				<td style="--size:1.0;" />
-			</tr>
-		</tbody>
-	</table>
-</section>
+			<tbody>
+				<tr>
+					<th> 2016 </th>
+					<td style="--size:0.2;" />
+				</tr>
+				<tr>
+					<th> 2017 </th>
+					<td style="--size:0.4;" />
+				</tr>
+				<tr>
+					<th> 2018 </th>
+					<td style="--size:0.6;" />
+				</tr>
+				<tr>
+					<th> 2019 </th>
+					<td style="--size:0.8;" />
+				</tr>
+				<tr>
+					<th> 2020 </th>
+					<td style="--size:1.0;" />
+				</tr>
+			</tbody>
+		</table>
+	</section>
 
-<CloseButton />
+	<CloseButton />
+</div>
 
 <style>
 	#analytics-page {
 		width: 100vw;
 		height: 100dvh;
+	}
+
+	.app {
+		display: flex;
+		flex-direction: column;
+		min-height: 100vh;
 	}
 
 	#chart {
