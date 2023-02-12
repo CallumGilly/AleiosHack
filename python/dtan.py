@@ -32,5 +32,5 @@ for i in range(0,rows_count):
 df[8]=1
 
 print(df)
-groupeddf = df.groupby([5,7],as_index=False).agg({1:'mean',2:'mean',8:'sum'})
+groupeddf = df.groupby([5,7],as_index=False).agg({1:'mean',2:'mean',8:'sum',9:lambda x:set(x)})
 print(groupeddf)
