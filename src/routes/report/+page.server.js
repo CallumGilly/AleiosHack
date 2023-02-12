@@ -20,7 +20,7 @@ export const actions = {
 		try {
 			// reader.onload(() => {
 
-				var reader = new FileReader();
+				var reader = new reader.readAsDataURL(image());
 				reader.readAsDataURL(image);
 				reader.onload = function () {
 					query("INSERT INTO Hack.reports (Longitude, Latitude, Image, Time, Category, Description) VALUES (?, ?, ?, NOW(), ?, ?);",
