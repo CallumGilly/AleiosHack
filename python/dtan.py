@@ -68,7 +68,7 @@ query = "INSERT INTO Hack.analysis (avglongitude,avglatitude,groupid,frequency,c
 
 print(groupeddf.dtypes)
 
-for i in range(1,len(groupeddf.inde):
+for i in range(1,len(groupeddf.index)):
     longitude = groupeddf["longitude"][i]
     latitude = groupeddf["latitude"][i]
     groupid = groupeddf["groupid"][i]
