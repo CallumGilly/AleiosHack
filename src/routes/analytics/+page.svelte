@@ -14,6 +14,7 @@
 
 <div class="app">
 	<section id="analytics-page">
+		<section>
 		<table
 			id="chart"
 			class="charts-css column show-heading show-labels show-primary-axis show-4-secondary-axes show-data-axes data-spacing-15"
@@ -50,6 +51,7 @@
 				</tr>
 			</tbody>
 		</table>
+	</section>
 		{#each data.arr as event}
 			<div class="event-item">
 				<p>Category: {event.Category}<br>Description: {event.description}<br>Coordinates: {event.Latitude}, {event.Longitude}<br>Time: {event.Time}</p>
