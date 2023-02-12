@@ -1,8 +1,6 @@
 <script>
 	export let data;
-	setTimeout(1000).them(() => {
 	console.log(data);
-	})
 </script>
 
 <!-- <svelte:window on:keydown={keydown} /> -->

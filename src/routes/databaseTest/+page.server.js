@@ -42,7 +42,7 @@ export const load = async () => {
     })
   });
 
-	await myPromise.then(
+	return await myPromise.then(
 		(data) => {
 			console.log(`code is ${data.code}`);
 			return data;
