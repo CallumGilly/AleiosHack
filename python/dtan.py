@@ -64,19 +64,19 @@ groupeddf.rename(columns={5:'category',1:'longitude',2:'latitude'},inplace=True)
 print(groupeddf)
 
 db_cursor.execute('DELETE FROM Hack.analysis')
-query = "INSERT INTO Hack.analysis (avglongitude,avglatitude,groupid,frequency,category,rank,trend) VALUES (%i, %i,%s,%s,%s,%s,%i)"
+query = "INSERT INTO Hack.analysis (avglongitude,avglatitude,groupid,frequency,category,rank,trend) VALUES (%s, %s,%s,%s,%s,%s,%s)"
 
-groupeddf.to_csv(r'/home/cwjg21/AleiosHack/python/analytics.txt',header=True,index=None,sep=',')
+#groupeddf.to_csv(r'/home/cwjg21/AleiosHack/python/analytics.txt',header=True,index=None,sep=',')
 
 for i in range(0,len(groupeddf.index)):
-    longitude = float(groupeddf["longitude"][i])
-    latitude = float(groupeddf["latitude"][i])
+    longitude = str(groupeddf["longitude"][i])
+    latitude = str(groupeddf["latitude"][i])
     groupid = groupeddf["groupid"][i]
     frequency = groupeddf["frequency"][i]
     category = groupeddf["category"][i]
     rank = groupeddf["rank"][i]
-    trend = float(groupeddf["trend"][i])
+    trend = str(groupeddf["trend"][i])
     
-    #db_cursor.execute(query,(longitude,latitude,groupid,frequency,category,rank,trend))
+    db_cursor.execute(query,(longitude,latitude,groupid,frequency,category,rank,trend))
 
 #groupeddf.to_csv(r'/home/cwjg21/AleiosHack/python/analytics.txt',header=True,index=None,sep=',')
