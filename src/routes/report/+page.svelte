@@ -1,4 +1,6 @@
 <script>
+	// import './styles.css';
+
 	import HomeButton from './HomeButton.svelte';
 
 	import ThankYou from './ThankYou.svelte';
