@@ -14,13 +14,13 @@ export const actions = {
 
 		// let reader = new FileReader();
 		// reader.readAsDataURL(image);
-		// let buffer = Buffer.from(await image.text());
+		let buffer = Buffer.from(await image.text());
 		try {
 			// reader.onload(() => {
 				query("INSERT INTO Hack.reports (Longitude, Latitude, Image, Time, Category, Description) VALUES (?, ?, ?, NOW(), ?, ?);",
 					[location.long, location.lat, image.name, type, description]
 				);
-				fs.writeFileSync(process.env.HOME + "/AleiosHack/static/images/" + image.name, (JSON.stringify(image)), {flag: "w"}, (err) => {
+				fs.writeFileSync(process.env.HOME + "/AleiosHack/static/images/" + image.name, buffer.toString("base64"), {flag: "w"}, (err) => {
 					if (err) {
 						console.log(err);
 					} else {
