@@ -40,6 +40,7 @@
 		position: absolute;
 		left: 2vw;
 		bottom: 2vw;
+		font-weight: bold;
 	}
 
 	#report-button svg {

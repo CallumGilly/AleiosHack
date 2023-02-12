@@ -3,7 +3,7 @@
 
 <section>
 	<a href="/"
-		><button id="close-button" type="button" class="btn btn-primary"
+		><button id="close-button" type="button" class="btn btn-danger"
 			><svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"
 				><title>Close</title><path
 					fill="none"

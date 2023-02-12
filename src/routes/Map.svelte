@@ -6,7 +6,6 @@
 	const INITIAL_VIEW = [50.935396, -1.395846];
 
 	let map;
-
 	let marker;
 
 	function add_marker(location, reports, ) {
@@ -39,6 +38,7 @@
 		map = m;
 		// add_marker([50.935396, -1.395846], 2);
 		console.log(data);
+
 		data.arr.forEach((element) => {
 			add_marker([element.Latitude, element.Longitude], 1);
 		});

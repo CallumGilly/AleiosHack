@@ -14,9 +14,10 @@
 	let coords = [];
 </script>
 
-<section>
+<section id = "report-page">
 	<Geolocation getPosition bind:coords bind:success bind:error bind:notSupported />
-	<form
+	
+	<form id="report-form"
 		method="POST"
 		use:enhance={() => {
 			return ({ update }) => {
@@ -24,7 +25,7 @@
 			};
 		}}
 	>
-		<label for="type-select" class="form-label">Report Type</label>
+		<label id="report-type-header" for="type-select" class="form-label">Report Type</label>
 		<select name="type-select" id="type-select" class="form-select form-select-lg mb-3">
 			<option>Litter</option>
 			<option>Water Wastage</option>
@@ -32,9 +33,10 @@
 			<option>Air Pollution</option>
 		</select>
 
-		<label for="description" class="form-label">Description</label>
-		<input id="description" name="description" class="form-control" value={textbox ?? ''} />
-		<textarea bind:value={textbox}></textarea>
+		<label id="report-description-header" for="description" class="form-label">Description</label>
+
+		<input name="description" class="form-control" style="display: none" value={textbox ?? ''}/>
+		<textarea id="description" bind:value={textbox} rows="2" cols="10" maxlength="80"/>
 
 		{#if files}
 			<label id="image-label" for="image-input" class="btn btn-success"
@@ -113,15 +115,19 @@
 </section>
 
 <style>
-	form {
-		width: 100%;
-		height: 100%;
+	#report-form {
+		width: 100vw;
+		height: 100vh;
 		display: flex;
 		flex-direction: column;
-		align-self: center;
-		align-items: center;
-		justify-content: center;
 		flex: 1;
+		background: rgb(255,255,255);
+		background: linear-gradient(180deg, rgba(255,255,255,1) 50%, rgb(212, 212, 212) 100%);
+	}
+
+	#report-page {
+		position: absolute;
+		display: flex;
 	}
 
 	#submit-button {
@@ -133,6 +139,7 @@
 		position: absolute;
 		left: 2vw;
 		bottom: 2vw;
+		font-weight: bold;
 	}
 
 	#submit-button svg {
@@ -142,25 +149,58 @@
 	}
 
 	#image-label {
-		width: 96vw;
+		width: 80vw;
+		height: 6vh;
+		margin-left: 10vw;
+		margin-top: 5vh;
 		display: flex;
 		align-items: center;
 		gap: 0.5rem;
 		border-radius: 10dvh;
+		font-weight: bold;
 	}
 
 	#image-label svg {
-		width: 50px;
-		height: 50px;
+		width: 30px;
+		height: 30px;
 		display: block;
-	}
-
-	#description {
-		display:none;
 	}
 
 	#image-input {
 		display: none;
+	}
+
+	#report-type-header {
+		font-size: large;
+		font-weight: bold;
+		padding-left: 10vw;
+		padding-top: 10vh;
+	}
+
+	#report-description-header {
+		font-size: large;
+		font-weight: bold;
+		padding-left: 10vw;
+		padding-top: 3vh;
+	}
+
+	#type-select {
+		width: 96vw;
+		height: 5vh;
+		padding-left: 3vw;
+		margin-left: 2vw;
+		border-radius: 10dvh;
+	}
+
+	#description {
+		width: 96vw;
+		height: 10vh;
+		padding-left: 5vw;
+		padding-right: 5vw;
+		margin-left: 2vw;
+		border-radius: 3dvh;
+		vertical-align: top;
+		font-size: 5vw;
 	}
 
 	.location {
