@@ -6,7 +6,7 @@
 		<svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"
 			><title>Checkmark Done</title><path
 				fill="none"
-				stroke="green"
+				stroke="currentColor"
 				stroke-linecap="round"
 				stroke-linejoin="round"
 				stroke-width="32"
@@ -32,8 +32,9 @@
 	.thank-you svg {
 		width: 50vw;
 	}
-
+	
+/* 
 	#thank-you-text {
 		color: rgb(0, 230, 0);
-	}
+	} */
 </style>
