@@ -1,8 +1,9 @@
 import query from "$lib/server/database";
 import spawn from 'child_process';
-import imageBlobReduce from "image-blob-reduce";
+// import imageBlobReduce from "image-blob-reduce";
 
-// import fs from "fs";
+import fs from "fs";
+
 export const actions = {
 	default: async (event) => {
 		const data = await event.request.formData();
@@ -26,17 +27,22 @@ export const actions = {
 				// reader.onload = function () {
 				query("INSERT INTO Hack.reports (Longitude, Latitude, Time, Category, Description) VALUES (?, ?, NOW(), ?, ?);",
 					[location.long, location.lat, type, description]
-				).then(() => {
-					try {
-						const python = spawn('python3', [process.env.HOME + "/AleiosHack/python/dtan.py"]);
-						python.on("close", (code) => {
-							console.log(`Python ran with code ${code}`);
-						});
-					} catch (err) {
-							console.log("Python could not run:");
-							console.log(err);
-					}
-				});
+				)
+				// .then(() => {
+				// 	try {
+				// 		const python = spawn('python3', [process.env.HOME + "/AleiosHack/python/dtan.py"]);
+				// 		python.on("close", (code) => {
+				// 			console.log(`Python ran with code ${code}`);
+				// 			var data = fs.readFileSync("../../../python/analytics.csv");
+				// 			data.split("\n").forEach(line => {
+				// 				query("INSERT INTO Hack.reports (groupid,avglongitude,avglatitude,frequency,category,)")
+				// 			});
+				// 		});
+				// 	} catch (err) {
+				// 			console.log("Python could not run:");
+				// 			console.log(err);
+				// 	}
+				// });
 				// query("INSERT INTO Hack.reports (Longitude, Latitude, Image, Time, Category, Description) VALUES (?, ?, ?, NOW(), ?, ?);",
 					// [location.long, location.lat, reader.result, type, description]
 				// )
