@@ -12,7 +12,7 @@
 </svelte:head>
 
 <div class="app">
-	<section>
+	<section id="analytics-page">
 		<table
 			id="chart"
 			class="charts-css column show-heading show-labels show-primary-axis show-4-secondary-axes show-data-axes data-spacing-15"
@@ -55,6 +55,11 @@
 </div>
 
 <style>
+	#analytics-page {
+		width: 100vw;
+		height: 100dvh;
+	}
+
 	.app {
 		display: flex;
 		flex-direction: column;
