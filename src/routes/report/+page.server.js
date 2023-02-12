@@ -1,4 +1,5 @@
 // import { fail } from '@sveltejs/kit';
+import query from "$lib/server/database";
 
 export const actions = {
 	default: async (event) => {
@@ -12,5 +13,10 @@ export const actions = {
 		console.log(type);
 		console.log(description);
 		console.log(image);
+
+		query(```INSERT INTO Hack.reports (Longitude, Latitude, Image, Time, Category, Description) 
+			VALUES (?, ?, ?, NOW(), ?, ?);```, 
+			[0.3,0.4,image, "Bob", "What trash"]
+		);
 	}
 };
