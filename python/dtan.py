@@ -10,7 +10,7 @@ table_rows = db_cursor.fetchall()
 df = pd.DataFrame(table_rows)
 
 rows_count = len(df.index)
-df["Group"] = ""
+df[7] = ""
 print(df)
 
 group = 1
