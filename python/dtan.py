@@ -2,6 +2,7 @@ import pandas as pd
 import mysql.connector as sql
 import matplotlib
 from geopy.distance import geodesic
+import datetime
 
 db_connection = sql.connect(host='localhost',database='Hack',user='pythonApp',password='VerySecure127!')
 db_cursor = db_connection.cursor()
@@ -11,7 +12,7 @@ df = pd.DataFrame(table_rows)
 
 rows_count = len(df.index)
 df[7] = ""
-print(df)
+df1 = df[df[4]>=datetime.datetime.today() - datetime.timedelta(days=90)]
 
 group = 1
 
@@ -28,10 +29,8 @@ for i in range(0,rows_count):
             
         group=group+1
 
-df[8] =1
-
-groupeddf = df.groupby(7,as_index=False).agg({1:'mean',2:'mean',8:'sum'})
+df[8]=1
 
 print(df)
-print(df.dtypes)
+groupeddf = df.groupby(7,as_index=False).agg({1:'mean',2:'mean',8:'sum',5:'min'})
 print(groupeddf)
