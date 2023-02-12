@@ -43,7 +43,9 @@
   "dependencies": {
     "bootstrap": "^5.2.3",
     "dotenv": "^16.0.3",
+    "image-blob-reduce": "^4.1.0",
     "leaflet": "^1.9.3",
-    "mysql": "^2.18.1"
+    "mysql": "^2.18.1",
+    "pica": "^9.0.1"
   }
 }
