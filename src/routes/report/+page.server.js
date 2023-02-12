@@ -1,5 +1,5 @@
 import query from "$lib/server/database";
-
+import fs from "fs";
 export const actions = {
 	default: async (event) => {
 		const data = await event.request.formData();
@@ -12,13 +12,19 @@ export const actions = {
 		console.log(image);
 		console.log(location);
 
-
-		let buffer = Buffer.from(await image.text());
+		let reader = new FileReader();
+		reader.readAsDataURL(image);
+		// let buffer = Buffer.from(await image.text());
 		try {
-			query("INSERT INTO Hack.reports (Longitude, Latitude, Image, Time, Category, Description) VALUES (?, ?, ? NOW(), ?, ?);",
-				[0.3, 0.4, "Bob", description]
-			);
-			console.log(buffer.toString("base64"));
+			reader.onload(() => {
+				query("INSERT INTO Hack.reports (Longitude, Latitude, Image, Time, Category, Description) VALUES (?, ?, ? NOW(), ?, ?);",
+					[0.3, 0.4, reader.result, "Bob", description]
+				);
+			})
+			
+
+			// image
+			// console.log(buffer.toString("base64"));
 		} catch (error) {
 			console.error(error);
 		}
