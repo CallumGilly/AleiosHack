@@ -3,6 +3,7 @@ import mysql.connector as sql
 import matplotlib
 from geopy.distance import geodesic
 import datetime
+import numpy as np
 
 db_connection = sql.connect(host='localhost',database='Hack',user='pythonApp',password='VerySecure127!')
 db_cursor = db_connection.cursor()
@@ -31,11 +32,9 @@ for i in range(0,rows_count):
 
 df[8]=1
 
-print(df)
+
 groupeddf = df.groupby(7,as_index=False).agg({1:'mean',2:'mean',8:'sum',5:'min'})
-groupeddf[8][1] =2
 groupeddf = groupeddf.sort_values(by=[8],ascending=False)
 groupeddf[9]=[1,len(groupeddf.index)]
 
-print(groupeddf)
-
+groupeddf.to_csv(r'/home/cwjg21/AleiosHack/python/analytics.txt',header=True,index=None,sep=',')

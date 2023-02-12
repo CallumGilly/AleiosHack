@@ -20,11 +20,11 @@
 </svelte:head>
 
 <div class="app">
-	<Geolocation
-		getPosition
-		bind:coords
-		bind:success
-	/>
+	<Geolocation getPosition bind:coords bind:success let:notSupported>
+		{#if notSupported}
+			Your browser does not support the Geolocation API.
+		{/if}</Geolocation
+	>
 	<form
 		method="POST"
 		use:enhance={() => {
