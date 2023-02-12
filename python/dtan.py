@@ -2,6 +2,7 @@ import pandas as pd
 import mysql.connector as sql
 import matplotlib
 from geopy.distance import geodesic
+import datetime
 
 db_connection = sql.connect(host='localhost',database='Hack',user='pythonApp',password='VerySecure127!')
 db_cursor = db_connection.cursor()
@@ -32,6 +33,5 @@ df[8] =1
 
 groupeddf = df.groupby(7,as_index=False).agg({1:'mean',2:'mean',8:'sum'})
 
-print(df)
-print(df.dtypes)
-print(groupeddf)
+
+print(datetime.datetime.today() - datetime.timedelta(days=90))
